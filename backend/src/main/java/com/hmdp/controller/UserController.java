@@ -1,6 +1,8 @@
 package com.hmdp.controller;
 
 
+import com.baomidou.mybatisplus.core.conditions.query.LambdaQueryWrapper;
+import com.baomidou.mybatisplus.core.conditions.query.QueryWrapper;
 import com.hmdp.dto.LoginFormDTO;
 import com.hmdp.dto.Result;
 import com.hmdp.entity.User;
@@ -8,12 +10,14 @@ import com.hmdp.entity.UserInfo;
 import com.hmdp.service.IUserInfoService;
 import com.hmdp.service.IUserService;
 import com.hmdp.utils.JwtUtils;
+import lombok.Data;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.web.bind.annotation.*;
 
 import javax.annotation.Resource;
 import javax.servlet.http.HttpSession;
 import java.util.HashMap;
+import java.util.Objects;
 
 /**
  * <p>
@@ -54,21 +58,19 @@ public class UserController {
             String password = loginForm.getPassword();
             String phone = loginForm.getPhone();
 
-            User user = new User();
-            user.setPhone(phone);
-            user.setPassword(password);
-            userService.save(user);
+            User user = userService.getOne( new QueryWrapper<User>().eq("phone", phone));
+            System.out.println(user);
+            if(user==null || !Objects.equals(user.getPassword(), password)){
+                return Result.fail("未查询到您的信息，请检测输入！");
+            }
 
             HashMap<String, Object> userForm = new HashMap<>();
             userForm.put("phone",phone);
             userForm.put("password",password);
-            JwtUtils jwtUtils = new JwtUtils();
-            String JwtPass = jwtUtils.genJwtPassword(userForm);
-            System.out.println(JwtPass);
+            String JwtPass = JwtUtils.genJwtPassword(userForm);
             return  Result.ok(JwtPass);
         }
-
-        return Result.fail("功能未完成");
+        return Result.fail("用户信息出错");
     }
 
     /**

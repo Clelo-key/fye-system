@@ -22,30 +22,33 @@ public class LoginCheckFilter implements Filter {
     public void doFilter(ServletRequest servletRequest, ServletResponse servletResponse, FilterChain filterChain) throws IOException, ServletException {
         HttpServletRequest httpRequest = (HttpServletRequest) servletRequest;
         String requestURI = httpRequest.getRequestURI();
+
         if (Objects.equals(requestURI, "/user/login")){
             filterChain.doFilter(servletRequest,servletResponse);
             System.out.println(requestURI);
             return;
         }
         String token = httpRequest.getHeader("token");
-        if(!(token.length() >0)){
-            System.out.println("请求头为空");
-            Result loginErr = Result.fail("当前未登录");
-            String s = JSON.toJSONString(loginErr);
-            servletResponse.getWriter().write(s);
-        }
-        try {
-            Claims claims = JwtUtils.getClaims(token);
-            System.out.println(claims);
-            filterChain.doFilter(servletRequest,servletResponse);
-
-        }catch (Exception e){
-            System.out.println("令牌解析失败");
-            Result loginErr = Result.fail("当前未登录");
-            String s = JSON.toJSONString(loginErr);
-            servletResponse.getWriter().write(s);
-            return;
-        }
+        filterChain.doFilter(servletRequest,servletResponse);
+        System.out.println(httpRequest.getRequestURI());
+//        if(!(token.length() >0)){
+//            System.out.println("请求头为空");
+//            Result loginErr = Result.fail("当前未登录");
+//            String s = JSON.toJSONString(loginErr);
+//            servletResponse.getWriter().write(s);
+//        }
+//        try {
+//            Claims claims = JwtUtils.getClaims(token);
+//            System.out.println(claims);
+//            filterChain.doFilter(servletRequest,servletResponse);
+//
+//        }catch (Exception e){
+//            System.out.println("令牌解析失败");
+//            Result loginErr = Result.fail("当前未登录");
+//            String s = JSON.toJSONString(loginErr);
+//            servletResponse.getWriter().write(s);
+//            return;
+//        }
 
     }
 
