@@ -22,6 +22,11 @@
             <artifactId>hm-module-system-api</artifactId>
             <version>${revision}</version>
         </dependency>
+        <!-- 工具类相关 -->
+        <dependency>
+            <groupId>org.projectlombok</groupId>
+            <artifactId>lombok</artifactId>
+        </dependency>
 
     </dependencies>
 

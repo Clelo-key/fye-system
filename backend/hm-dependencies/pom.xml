@@ -30,6 +30,7 @@
         <easy-trans.version>3.0.5</easy-trans.version>
         <redisson.version>3.32.0</redisson.version>
         <dm8.jdbc.version>8.1.3.62</dm8.jdbc.version>
+
         <kingbase.jdbc.version>8.6.0</kingbase.jdbc.version>
         <opengauss.jdbc.version>5.0.2</opengauss.jdbc.version>
         <!-- 消息队列 -->
@@ -62,6 +63,8 @@
         <tika-core.version>2.9.2</tika-core.version>
         <ip2region.version>2.7.0</ip2region.version>
         <bizlog-sdk.version>3.0.6</bizlog-sdk.version>
+        <findbugs.anannotations.version>3.0.1</findbugs.anannotations.version>
+
         <!-- 三方云服务相关 -->
         <okio.version>3.5.0</okio.version>
         <okhttp3.version>4.11.0</okhttp3.version>
@@ -74,47 +77,53 @@
     </properties>
 
     <dependencyManagement>
-       <dependencies>
-           <!-- 统一依赖管理 -->
-           <dependency>
-               <groupId>org.springframework.boot</groupId>
-               <artifactId>spring-boot-dependencies</artifactId>
-               <version>${spring.boot.version}</version>
-               <type>pom</type>
-               <scope>import</scope>
-           </dependency>
+        <dependencies>
+            <!-- springBoot默认的依赖自动版本仲裁 -->
+            <dependency>
+                <groupId>org.springframework.boot</groupId>
+                <artifactId>spring-boot-dependencies</artifactId>
+                <version>${spring.boot.version}</version>
+                <type>pom</type>
+                <scope>import</scope>
+            </dependency>
 
-           <!-- Spring 核心 -->
-           <dependency>
-               <!-- 用于生成自定义的 Spring @ConfigurationProperties 配置类的说明文件 -->
-               <groupId>org.springframework.boot</groupId>
-               <artifactId>spring-boot-configuration-processor</artifactId>
-               <version>${spring.boot.version}</version>
-           </dependency>
+            <!-- Spring 核心 -->
+            <dependency>
+                <!-- 用于生成自定义的 Spring @ConfigurationProperties 配置类的说明文件 -->
+                <groupId>org.springframework.boot</groupId>
+                <artifactId>spring-boot-configuration-processor</artifactId>
+                <version>${spring.boot.version}</version>
+            </dependency>
 
-           <!-- 工具类相关 -->
-           <dependency>
-               <groupId>org.mapstruct</groupId>
-               <artifactId>mapstruct</artifactId> <!-- use mapstruct-jdk8 for Java 8 or higher -->
-               <version>${mapstruct.version}</version>
-           </dependency>
-           <dependency>
-               <groupId>org.mapstruct</groupId>
-               <artifactId>mapstruct-jdk8</artifactId>
-               <version>${mapstruct.version}</version>
-           </dependency>
-           <dependency>
-               <groupId>org.mapstruct</groupId>
-               <artifactId>mapstruct-processor</artifactId>
-               <version>${mapstruct.version}</version>
-           </dependency>
+            <!-- 工具类相关 -->
+            <dependency>
+                <groupId>org.mapstruct</groupId>
+                <artifactId>mapstruct</artifactId> <!-- use mapstruct-jdk8 for Java 8 or higher -->
+                <version>${mapstruct.version}</version>
+            </dependency>
+            <dependency>
+                <groupId>org.mapstruct</groupId>
+                <artifactId>mapstruct-jdk8</artifactId>
+                <version>${mapstruct.version}</version>
+            </dependency>
+            <dependency>
+                <groupId>org.mapstruct</groupId>
+                <artifactId>mapstruct-processor</artifactId>
+                <version>${mapstruct.version}</version>
+            </dependency>
 
-           <dependency>
-               <groupId>cn.hutool</groupId>
-               <artifactId>hutool-all</artifactId>
-               <version>${hutool.version}</version>
-           </dependency>
-       </dependencies>
+            <dependency>
+                <groupId>cn.hutool</groupId>
+                <artifactId>hutool-all</artifactId>
+                <version>${hutool.version}</version>
+            </dependency>
+            <!--   未知的枚举常量 javax.annotation.meta.When.MAYBE        -->
+            <dependency>
+                <groupId>com.google.code.findbugs</groupId>
+                <artifactId>annotations</artifactId>
+                <version>${findbugs.anannotations.version}</version>
+            </dependency>
+        </dependencies>
     </dependencyManagement>
 
     <build>
