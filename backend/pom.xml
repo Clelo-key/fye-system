@@ -2,30 +2,19 @@
 <project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
          xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 https://maven.apache.org/xsd/maven-4.0.0.xsd">
     <modelVersion>4.0.0</modelVersion>
-    <groupId>com.hmdp.boot</groupId>
-    <artifactId>hmdp</artifactId>
+    <groupId>cn.fye.boot</groupId>
+    <artifactId>fye</artifactId>
     <version>${revision}</version>
     <packaging>pom</packaging>
     <name>${project.artifactId}</name>
     <description>Demo project for Spring Boot</description>
 
     <modules>
-        <module>hm-dependencies</module>
-        <module>hm-module-system</module>
-        <module>hm-server</module>
-        <module>hm-framework</module>
-        <!-- Server 主项目 -->
-        <!-- 各种 module 拓展 -->
-        <!--        <module>yudao-module-member</module>-->
-        <!--        <module>yudao-module-bpm</module>-->
-        <!--        <module>yudao-module-report</module>-->
-        <!--        <module>yudao-module-mp</module>-->
-        <!--        <module>yudao-module-pay</module>-->
-        <!--        <module>yudao-module-mall</module>-->
-        <!--        <module>yudao-module-crm</module>-->
-        <!--        <module>yudao-module-erp</module>-->
-        <!-- AI 大模型的开启，请参考 https://doc.iocoder.cn/ai/build/ 文档，对 JDK 版本要要求！ -->
-        <!--        <module>yudao-module-ai</module>-->
+        <module>lecteste-dependencies</module>
+        <module>lecteste-module-system</module>
+        <module>lecteste-server</module>
+        <module>lecteste-framework</module>
+
     </modules>
     <properties>
         <revision>2.2.0-jdk8-snapshot</revision>
@@ -46,8 +35,8 @@
     <dependencyManagement>
         <dependencies>
             <dependency>
-                <groupId>com.hmdp.boot</groupId>
-                <artifactId>hm-dependencies</artifactId>
+                <groupId>cn.fye.boot</groupId>
+                <artifactId>lecteste-dependencies</artifactId>
                 <version>${revision}</version>
                 <type>pom</type>
                 <scope>import</scope>

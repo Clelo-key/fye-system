@@ -4,10 +4,9 @@ import AutoImport from 'unplugin-auto-import/vite'
 import Components from 'unplugin-vue-components/vite'
 import { ElementPlusResolver } from 'unplugin-vue-components/resolvers'
 import vue from '@vitejs/plugin-vue'
-import path from 'path' // 关键代码
+import path from 'path'
 
 export default defineConfig({
-    // ...
     define: {
         'process.env': {
             BASE_API: 'http://localhost:5173' // 前端Base_URl
@@ -20,7 +19,8 @@ export default defineConfig({
                 changeOrigin: true,
                 rewrite: (path) => path.replace(/^\/api/, '')
             }
-        }
+        },
+        host: '0.0.0.0'
     },
     resolve: {
         // 配置路径别名

@@ -12,20 +12,20 @@ const routes = [
         redirect: '/home',
         children: [].concat(home, message, user, map, login)
     }
-    // {
-    //     path: '/:pathMatch(.*)*',
-    //     component: () => import('@/views/error/index.vue'),
-    //     hidden: true
-    // }
-    // {
-    //     path: '*',
-    //     redirect: '/404'
-    // }
 ]
 
 const router = createRouter({
     history: createMemoryHistory(),
     routes
+})
+
+router.beforeEach((to, form, next) => {
+    console.log(to.path)
+    if (to.path == '/login' || to.path == '/home') {
+        next()
+    } else if (!localStorage.getItem('token')) {
+        next(false)
+    }
 })
 
 export default router

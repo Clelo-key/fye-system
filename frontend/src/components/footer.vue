@@ -24,6 +24,8 @@
 <script setup>
 import { ref } from 'vue'
 import router from '@/router'
+import { ElMessage } from 'element-plus'
+
 defineProps({
     msg: String
 })
@@ -31,6 +33,11 @@ defineProps({
 const activeBtn = ref(0)
 
 function toPage(i) {
+    if (!localStorage.getItem('token') && i != 1) {
+        ElMessage.error('请登录后再次进行访问！')
+        router.push('login')
+        return
+    }
     activeBtn.value = i
     switch (i) {
         case 0: {

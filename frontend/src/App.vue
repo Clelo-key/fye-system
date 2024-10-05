@@ -24,5 +24,8 @@ onMounted(() => {
 .app-view {
     width: 100%;
     height: calc(100% - 40px);
+    padding: 10px;
+    box-sizing: border-box;
+    display: flex;
 }
 </style>

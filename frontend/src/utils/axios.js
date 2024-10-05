@@ -91,9 +91,11 @@ service.interceptors.response.use(
         } else {
             // 超时处理
             if (JSON.stringify(error).includes('timeout')) {
-                ElMessage.error('服务器响应超时，请刷新当前页')
+                error.message = '服务器响应超时，请稍后再次尝试'
+                // ElMessage.error('服务器响应超时，请刷新当前页')
+            } else {
+                error.message = '连接服务器失败'
             }
-            error.message = '连接服务器失败'
         }
 
         ElMessage.error(error.message)

@@ -1,0 +1,46 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 https://maven.apache.org/xsd/maven-4.0.0.xsd" xmlns="http://maven.apache.org/POM/4.0.0"
+    xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+  <modelVersion>4.0.0</modelVersion>
+  <parent>
+    <groupId>cn.fye.boot</groupId>
+    <artifactId>fye</artifactId>
+    <version>2.2.0-jdk8-snapshot</version>
+  </parent>
+  <artifactId>lecteste-server</artifactId>
+  <version>2.2.0-jdk8-snapshot</version>
+  <dependencies>
+    <dependency>
+      <groupId>cn.fye.boot</groupId>
+      <artifactId>lecteste-module-system-biz</artifactId>
+      <version>${revision}</version>
+    </dependency>
+    <dependency>
+      <groupId>cn.fye.boot</groupId>
+      <artifactId>lecteste-spring-boot-starter-web</artifactId>
+      <version>${revision}</version>
+    </dependency>
+    <dependency>
+      <groupId>cn.fye.boot</groupId>
+      <artifactId>lecteste-common</artifactId>
+      <version>${revision}</version>
+    </dependency>
+  </dependencies>
+  <build>
+    <finalName>${project.artifactId}</finalName>
+    <plugins>
+      <plugin>
+        <groupId>org.springframework.boot</groupId>
+        <artifactId>spring-boot-maven-plugin</artifactId>
+        <version>${spring.boot.version}</version>
+        <executions>
+          <execution>
+            <goals>
+              <goal>repackage</goal>
+            </goals>
+          </execution>
+        </executions>
+      </plugin>
+    </plugins>
+  </build>
+</project>
