@@ -12,18 +12,28 @@
   <dependencies>
     <dependency>
       <groupId>cn.fye.boot</groupId>
-      <artifactId>lecteste-module-system-biz</artifactId>
-      <version>${revision}</version>
-    </dependency>
-    <dependency>
-      <groupId>cn.fye.boot</groupId>
       <artifactId>lecteste-spring-boot-starter-web</artifactId>
       <version>${revision}</version>
     </dependency>
     <dependency>
       <groupId>cn.fye.boot</groupId>
-      <artifactId>lecteste-common</artifactId>
+      <artifactId>lecteste-module-member-biz</artifactId>
       <version>${revision}</version>
+    </dependency>
+    <dependency>
+      <groupId>cn.fye.boot</groupId>
+      <artifactId>lecteste-module-system-biz</artifactId>
+      <version>${revision}</version>
+    </dependency>
+    <dependency>
+      <groupId>cn.fye.boot</groupId>
+      <artifactId>lecteste-module-pay-biz</artifactId>
+      <version>${revision}</version>
+    </dependency>
+    <dependency>
+      <groupId>com.google.code.findbugs</groupId>
+      <artifactId>annotations</artifactId>
+      <version>3.0.1</version>
     </dependency>
   </dependencies>
   <build>

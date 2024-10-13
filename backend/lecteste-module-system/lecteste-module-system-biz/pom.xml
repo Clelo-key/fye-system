@@ -24,8 +24,12 @@
         </dependency>
         <!-- 工具类相关 -->
         <dependency>
-            <groupId>org.projectlombok</groupId>
-            <artifactId>lombok</artifactId>
+            <groupId>cn.fye.boot</groupId>
+            <artifactId>lecteste-common</artifactId>
+        </dependency>
+        <dependency>
+            <groupId>cn.fye.boot</groupId>
+            <artifactId>lecteste-spring-boot-starter-web</artifactId>
         </dependency>
 
     </dependencies>

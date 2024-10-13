@@ -9,6 +9,7 @@
   <name>${project.artifactId}</name>
   <description>基础 bom 文件，管理整个项目的依赖版本</description>
   <properties>
+    <validation.version>2.0.2</validation.version>
     <tika-core.version>2.9.2</tika-core.version>
     <podam.version>7.2.11.RELEASE</podam.version>
     <captcha-plus.version>1.0.10</captcha-plus.version>
@@ -34,9 +35,8 @@
     <transmittable-thread-local.version>2.14.5</transmittable-thread-local.version>
     <spring-boot-admin.version>2.7.15</spring-boot-admin.version>
     <minio.version>8.5.7</minio.version>
-    <findbugs.anannotations.version>3.0.1</findbugs.anannotations.version>
     <jedis-mock.version>1.1.2</jedis-mock.version>
-    <spring.boot.version>2.7.18</spring.boot.version>
+    <spring.boot.version>3.2.0</spring.boot.version>
     <hutool.version>5.8.29</hutool.version>
     <guava.version>33.2.1-jre</guava.version>
     <servlet.versoin>2.5</servlet.versoin>
@@ -46,7 +46,7 @@
     <okhttp3.version>4.11.0</okhttp3.version>
     <commons-net.version>3.11.1</commons-net.version>
     <jsoup.version>1.18.1</jsoup.version>
-    <mybatis-plus.version>3.5.7</mybatis-plus.version>
+    <mybatis-plus.version>3.5.5</mybatis-plus.version>
     <jimureport.version>1.7.8</jimureport.version>
     <knife4j.version>4.5.0</knife4j.version>
     <lombok.version>1.18.34</lombok.version>
@@ -75,9 +75,34 @@
         <version>${spring.boot.version}</version>
       </dependency>
       <dependency>
+        <groupId>cn.fye.boot</groupId>
+        <artifactId>lecteste-spring-boot-starter-web</artifactId>
+        <version>2.2.0-jdk8-snapshot</version>
+      </dependency>
+      <dependency>
+        <groupId>com.alibaba</groupId>
+        <artifactId>druid-spring-boot-starter</artifactId>
+        <version>${druid.version}</version>
+      </dependency>
+      <dependency>
+        <groupId>org.mybatis</groupId>
+        <artifactId>mybatis</artifactId>
+        <version>${mybatis.version}</version>
+      </dependency>
+      <dependency>
+        <groupId>com.baomidou</groupId>
+        <artifactId>mybatis-plus-spring-boot3-starter</artifactId>
+        <version>${mybatis-plus.version}</version>
+      </dependency>
+      <dependency>
         <groupId>com.google.guava</groupId>
         <artifactId>guava</artifactId>
         <version>${guava.version}</version>
+      </dependency>
+      <dependency>
+        <groupId>cn.fye.boot</groupId>
+        <artifactId>lecteste-common</artifactId>
+        <version>2.2.0-jdk8-snapshot</version>
       </dependency>
       <dependency>
         <groupId>org.mapstruct</groupId>
@@ -100,9 +125,14 @@
         <version>${hutool.version}</version>
       </dependency>
       <dependency>
-        <groupId>com.google.code.findbugs</groupId>
-        <artifactId>annotations</artifactId>
-        <version>${findbugs.anannotations.version}</version>
+        <groupId>jakarta.validation</groupId>
+        <artifactId>jakarta.validation-api</artifactId>
+        <version>${validation.version}</version>
+      </dependency>
+      <dependency>
+        <groupId>org.mockito</groupId>
+        <artifactId>mockito-inline</artifactId>
+        <version>${mockito-inline.version}</version>
       </dependency>
     </dependencies>
   </dependencyManagement>

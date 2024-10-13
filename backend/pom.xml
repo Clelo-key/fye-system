@@ -11,11 +11,14 @@
 
     <modules>
         <module>lecteste-dependencies</module>
-        <module>lecteste-module-system</module>
         <module>lecteste-server</module>
         <module>lecteste-framework</module>
-
+        <module>lecteste-module-system</module>
+        <module>lecteste-module-member</module>
+        <module>lecteste-module-forum</module>
+        <module>lecteste-module-pay</module>
     </modules>
+
     <properties>
         <revision>2.2.0-jdk8-snapshot</revision>
         <!-- Maven 相关 -->
@@ -27,7 +30,8 @@
         <flatten-maven-plugin.version>1.6.0</flatten-maven-plugin.version>
         <!-- 看看咋放到 bom 里 -->
         <lombok.version>1.18.34</lombok.version>
-        <spring.boot.version>2.7.18</spring.boot.version>
+<!--        <spring.boot.version>2.7.18</spring.boot.version>-->
+        <spring.boot.version>3.2.0</spring.boot.version>
         <mapstruct.version>1.5.5.Final</mapstruct.version>
         <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
     </properties>
@@ -129,7 +133,6 @@
             <name>aliyun</name>
             <url>https://maven.aliyun.com/repository/public</url>
         </repository>
-
         <repository>
             <id>spring-milestones</id>
             <name>Spring Milestones</name>

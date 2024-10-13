@@ -12,6 +12,18 @@
     <artifactId>lecteste-server</artifactId>
 
     <dependencies>
+        <!-- framework -->
+        <dependency>
+            <groupId>cn.fye.boot</groupId>
+            <artifactId>lecteste-spring-boot-starter-web</artifactId>
+            <version>${revision}</version>
+        </dependency>
+        <!-- 业务相关 -->
+        <dependency>
+            <groupId>cn.fye.boot</groupId>
+            <artifactId>lecteste-module-member-biz</artifactId>
+            <version>${revision}</version>
+        </dependency>
         <dependency>
             <groupId>cn.fye.boot</groupId>
             <artifactId>lecteste-module-system-biz</artifactId>
@@ -19,14 +31,17 @@
         </dependency>
         <dependency>
             <groupId>cn.fye.boot</groupId>
-            <artifactId>lecteste-spring-boot-starter-web</artifactId>
+            <artifactId>lecteste-module-pay-biz</artifactId>
             <version>${revision}</version>
         </dependency>
+
+        <!--   未知的枚举常量 javax.annotation.meta.When.MAYBE        -->
         <dependency>
-            <groupId>cn.fye.boot</groupId>
-            <artifactId>lecteste-common</artifactId>
-            <version>${revision}</version>
+            <groupId>com.google.code.findbugs</groupId>
+            <artifactId>annotations</artifactId>
+            <version>3.0.1</version>
         </dependency>
+
 
     </dependencies>
     <build>

@@ -7,17 +7,12 @@
         <artifactId>lecteste-module-system</artifactId>
         <version>${revision}</version>
     </parent>
+    <packaging>jar</packaging>
     <modelVersion>4.0.0</modelVersion>
     <artifactId>lecteste-module-system-api</artifactId>
-    <packaging>jar</packaging>
-
     <name>${project.artifactId}</name>
     <description>
         system 模块 API，暴露给其它模块调用
     </description>
-
-    <dependencies>
-
-    </dependencies>
 
 </project>
