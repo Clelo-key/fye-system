@@ -1,8 +1,7 @@
 <template>
     <div class="login-container">
         <div class="header">
-            <div class="header-title">密码登录</div>
-            <div class="welcome-info">黑马点评欢迎您</div>
+            <div class="welcome-info">欢迎来到黑马点评</div>
         </div>
         <div class="content">
             <div class="login-form">
@@ -10,8 +9,8 @@
                 </el-input>
                 <el-input placeholder="请输入密码" v-model="form.password" show-password> </el-input>
             </div>
-            <div class="login-button" @click="login">
-                <el-button :disabled="validationInput"> 确认登录 </el-button>
+            <div class="login-button">
+                <el-button @click="login" :class="{ 'valid-pass': validationInput }"> 确认登录 </el-button>
             </div>
         </div>
     </div>
@@ -23,27 +22,29 @@ import { ElMessage } from 'element-plus'
 import { computed } from 'vue'
 const form = ref({ phone: '', password: '' })
 
+// 有效输入
 const validationInput = computed(() => {
-    let staus = false
+    let staus = true
     for (let key in form.value) {
         if (!form.value[key]) {
-            staus = true
+            staus = false
         }
     }
     return staus
 })
 
 function login() {
-    loginService
-        .login(form.value)
-        .then(({ data }) => {
-            if (data) {
-                console.log(data)
-                // 保存用户信息到session
-                sessionStorage.setItem('token', data)
-            }
-        })
-        .catch((err) => ElMessage.error(err))
+    if (!validationInput.value) {
+        ElMessage.error('请输入相关信息')
+        return
+    }
+    loginService.login(form.value).then(({ data }) => {
+        if (data) {
+            console.log(data)
+            // 保存用户信息到session
+            sessionStorage.setItem('token', data)
+        }
+    })
 }
 </script>
 
@@ -51,9 +52,8 @@ function login() {
 .login-container {
     width: 100%;
     height: 100%;
-    box-sizing: border-box;
-
-    padding: 10px;
+    flex: 1;
+    box-sizing: content-box;
     .header {
         width: 100%;
         height: 200px;
@@ -61,7 +61,7 @@ function login() {
             text-align: center;
             font-size: 30px;
             font-weight: bold;
-            margin-top: 70px;
+            padding-top: 70px;
         }
     }
     .content {
@@ -71,16 +71,23 @@ function login() {
             :deep(.el-input) {
                 margin-top: 10px;
                 height: 40px;
+                .el-input__wrapper {
+                    border: 0px;
+                }
             }
         }
         .login-button {
             width: 100%;
             text-align: center;
             :deep(.el-button) {
-                width: 120px;
+                width: 150px;
                 height: 50px;
                 margin-top: 20px;
                 font-size: 16px;
+                border-radius: 10px;
+            }
+            .valid-pass {
+                color: rgb(77, 192, 238);
             }
         }
     }

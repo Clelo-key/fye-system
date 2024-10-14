@@ -1,0 +1,43 @@
+spring:
+  application:
+    name: lecteste-server
+  main:
+    allow-circular-references: true # 允许循环依赖，因为项目是三层架构，无法避免这个情况。
+  mvc:
+    throw-exception-if-no-handler-found: true
+    staticPathPattern: "/statics/**"
+  datasource:
+    url: jdbc:mysql://localhost:3306/lecteste?useSSL=false&serverTimezone=Asia/Shanghai&allowPublicKeyRetrieval=true&nullCatalogMeansCurrent=true&rewriteBatchedStatements=true
+    username: root
+    password: 123456
+    driver-class-name: com.mysql.cj.jdbc.Driver
+    type: com.alibaba.druid.pool.DruidDataSource # 设置类型为 DruidDataSource
+    # Druid 自定义配置，对应 DruidDataSource 中的 setting 方法的属性
+    druid:
+      min-idle: 0 # 池中维护的最小空闲连接数，默认为 0 个。
+      max-active: 20 # 池中最大连接数，包括闲置和使用中的连接，默认为 8 个。
+
+# mybatis-plus 配置内容
+mybatis-plus:
+  configuration:
+    map-underscore-to-camel-case: true # 下划线映射为驼峰。虽然默认为 true ，但是还是显示去指定下。
+  global-config:
+    db-config:
+      id-type: auto # ID 主键自增
+      logic-delete-value: 1 # 逻辑已删除值(默认为 1)
+      logic-not-delete-value: 0 # 逻辑未删除值(默认为 0)
+  mapper-locations: classpath*:mapper/*.xml
+#  type-aliases-package: cn.fye.lecteste.springboot.lab12.mybatis.dataobject
+
+server:
+  port: 8081
+  servlet:
+    encoding:
+      enabled: true
+      charset: UTF-8 # 必须设置 UTF-8，避免 WebFlux 流式返回（AI 场景）会乱码问题
+      force: true
+
+lecteste:
+  info:
+    version: 1.0.0
+    base-package: cn.fye.lecteste
