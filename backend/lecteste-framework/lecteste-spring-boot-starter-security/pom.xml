@@ -45,6 +45,16 @@
             <groupId>com.google.guava</groupId>
             <artifactId>guava</artifactId>
         </dependency>
+        <!-- 业务组件 -->
+        <dependency>
+            <groupId>cn.fye.boot</groupId>
+            <artifactId>lecteste-module-system-api</artifactId> <!-- 需要使用它，进行 Token 的校验 -->
+            <version>${revision}</version>
+        </dependency>
+        <dependency>
+            <groupId>jakarta.servlet</groupId>
+            <artifactId>jakarta.servlet-api</artifactId>
+        </dependency>
     </dependencies>
 
 

@@ -1,0 +1,2 @@
+cn.fye.lecteste.framework.security.config.LectesteSecurityAutoConfiguration
+cn.fye.lecteste.framework.security.config.LectesteWebSecurityConfigurerAdapter

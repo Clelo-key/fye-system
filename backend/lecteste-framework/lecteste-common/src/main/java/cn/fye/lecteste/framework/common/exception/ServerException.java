@@ -6,7 +6,7 @@ import lombok.EqualsAndHashCode;
 
 @EqualsAndHashCode(callSuper=false)
 @Data
-public class ServerException extends  RuntimeException{
+public class ServerException extends RuntimeException{
     /**
      * 全局错误码
      *
@@ -23,6 +23,7 @@ public class ServerException extends  RuntimeException{
      */
     public ServerException() {
     }
+
     public ServerException(ErrorCode errorCode) {
         this.code = errorCode.getCode();
         this.message = errorCode.getMsg();

@@ -17,7 +17,9 @@ import cn.fye.lecteste.framework.common.exception.ErrorCode;
 public interface GlobalErrorCodeConstants {
     ErrorCode SUCCESS = new ErrorCode(0, "成功");
 
-    // ========== 客户端错误段 ==========
+    /**
+     * 客户端错误段
+     * */
 
     ErrorCode BAD_REQUEST = new ErrorCode(400, "请求参数不正确");
     ErrorCode UNAUTHORIZED = new ErrorCode(401, "账号未登录");
@@ -40,6 +42,5 @@ public interface GlobalErrorCodeConstants {
      * */
     ErrorCode REPEATED_REQUESTS = new ErrorCode(900, "重复请求，请稍后重试");
     ErrorCode DEMO_DENY = new ErrorCode(901, "演示模式，禁止写操作");
-
     ErrorCode UNKNOWN = new ErrorCode(999, "未知错误");
 }

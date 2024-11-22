@@ -136,7 +136,7 @@ public class ProjectReactor {
         return file.getPath().replace(projectBaseDir, projectBaseDirNew) // 新目录
                 .replace(PACKAGE_NAME.replaceAll("\\.", Matcher.quoteReplacement(separator)),
                         packageNameNew.replaceAll("\\.", Matcher.quoteReplacement(separator)))
-                .replace(ARTIFACT_ID, artifactIdNew) //
+                .replace(ARTIFACT_ID, artifactIdNew)
                 .replaceAll(StrUtil.upperFirst(ARTIFACT_ID), StrUtil.upperFirst(artifactIdNew));
     }
 

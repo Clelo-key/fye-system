@@ -5,6 +5,7 @@ import cn.fye.lecteste.module.member.api.user.dto.MemberUserRespDTO;
 /**
  * @author FYE
  */
+
 public interface MemberUserApi {
     /**
      * 获取用户信息

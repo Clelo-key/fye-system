@@ -15,7 +15,7 @@
         <revision>2.2.0-jdk8-snapshot</revision>
         <flatten-maven-plugin.version>1.6.0</flatten-maven-plugin.version>
         <!-- 统一依赖管理 -->
-<!--        <spring.boot.version>2.7.18</spring.boot.version>-->
+        <!--        <spring.boot.version>2.7.18</spring.boot.version>-->
         <spring.boot.version>3.2.0</spring.boot.version>
         <!-- Web 相关 -->
         <springdoc.version>1.7.0</springdoc.version>
@@ -104,6 +104,12 @@
 
             <!-- DB相关 -->
             <dependency>
+                <groupId>cn.fye.boot</groupId>
+                <artifactId>lecteste-spring-boot-starter-mybatis</artifactId>
+                <version>${revision}</version>
+            </dependency>
+
+            <dependency>
                 <groupId>com.alibaba</groupId>
                 <artifactId>druid-spring-boot-starter</artifactId>
                 <version>${druid.version}</version>
@@ -131,6 +137,11 @@
                 <groupId>cn.fye.boot</groupId>
                 <artifactId>lecteste-common</artifactId>
                 <version>${revision}</version>
+            </dependency>
+            <dependency>
+                <groupId>cn.fye.boot</groupId>
+                <artifactId>lecteste-spring-boot-starter-security</artifactId>
+                <version>2.2.0-jdk8-snapshot</version>
             </dependency>
 
             <dependency>

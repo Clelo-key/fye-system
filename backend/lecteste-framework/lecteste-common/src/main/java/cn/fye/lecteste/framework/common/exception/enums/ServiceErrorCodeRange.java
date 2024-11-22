@@ -26,7 +26,7 @@ package cn.fye.lecteste.framework.common.exception.enums;
  *
  * @author 芋道源码
  */
-public enum  ServiceErrorCodeRange {
+public enum ServiceErrorCodeRange {
 
     /**
     * */

@@ -15,8 +15,6 @@
         <module>lecteste-framework</module>
         <module>lecteste-module-system</module>
         <module>lecteste-module-member</module>
-        <module>lecteste-module-forum</module>
-        <module>lecteste-module-pay</module>
     </modules>
 
     <properties>
