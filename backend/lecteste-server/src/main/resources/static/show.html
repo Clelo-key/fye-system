@@ -1,0 +1,95 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>用户信息</title>
+    <link rel="stylesheet" href="./style.css">
+</head>
+<body>
+<header>
+    <h1>用户信息列表</h1>
+</header>
+
+<main id="user-list">
+    <!-- 用户信息卡片会在这里生成 -->
+</main>
+
+<footer>
+    <p>© 2024 用户信息展示系统</p>
+</footer>
+
+<script>
+    // 获取用户数据并动态显示
+    // http://47.108.138.128:8087/app-api/user/admin?mobile=
+    // 获取用户数据并动态显示
+    const token = localStorage.getItem('token');
+    const mobile = '19183527031';
+    // const baseUrl='http://127.0.0.1:8081'
+    const baseUrl = 'http://47.108.138.128:8081';
+
+
+    // 使用 async/await 优化异步请求处理
+    async function fetchUserData() {
+        try {
+            // 发送 GET 请求获取用户数据
+            const response = await fetch(`${baseUrl}/app-api/user/admin?mobile=${mobile}`, {
+                method: 'GET',
+                "Access-Control-Allow-Origin" : "*",
+                "Access-Control-Allow-Credentials" : true,
+                headers: {
+                    'Authorization': `${token}` // 携带 token
+                }
+            });
+
+            // 检查请求是否成功
+            if (!response.ok) {
+                throw new Error(`请求失败，状态码：${response.status}`);
+            }
+
+            // 获取 JSON 数据
+            const data = await response.json();
+            // 如果数据存在，渲染用户数据
+            if (data && data.data) {
+                const users = [data.data] // 获取用户列表
+                console.log(users)
+                const userList = document.getElementById('user-list');
+                if (userList) {
+                    users.forEach(user => {
+                        // 创建用户卡片
+                        const userCard = document.createElement('div');
+                        userCard.classList.add('user-card');
+                        userCard.innerHTML = `
+                        <div class="avatar">
+                            <img src="${user.avatar || `${baseUrl}/statics/favicon.ico`}" alt="${user.nickname}">
+                        </div>
+                        <div class="user-info">
+                            <h2>${user.nickname}</h2>
+                            <p><strong>真实姓名:</strong> ${user.name || '未填写'}</p>
+                            <p><strong>性别:</strong> ${user.sex === 0 ? '男' : user.sex === 1 ? '女' : '未填写'}</p>
+<!--                            <p><strong>邮箱:</strong> ${user.email || '未填写'}</p>-->
+                            <p><strong>手机号码:</strong> ${user.mobile || '未填写'}</p>
+                            <p><strong>最后登录时间:</strong> ${user.updateTime}</p>
+                            <p><strong>帐号状态:</strong> ${user.status === 0 ? '正常' : '停用'}</p>
+                        </div>
+                    `;
+                        userList.appendChild(userCard);
+                    });
+                } else {
+                    console.error('未找到用户列表容器');
+                }
+            } else {
+                console.error('返回数据不包含用户列表');
+            }
+        } catch (error) {
+            // 处理请求错误
+            console.error('数据加载失败:', error);
+        }
+    }
+
+    // 调用函数获取并渲染用户数据
+    fetchUserData();
+
+</script>
+</body>
+</html>

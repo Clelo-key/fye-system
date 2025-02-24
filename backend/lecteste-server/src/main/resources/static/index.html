@@ -1,0 +1,89 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Login and Redirect</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            text-align: center;
+            padding: 50px;
+        }
+        #sendRequest, #jumpPage {
+            width: 150px;
+            height: 40px;
+            border-radius: 20px;
+            box-shadow: 4px 4px 8px rgba(0, 0, 0, 0.2);
+            color: #fff;
+            background-color: #4CAF50;
+            font-size: 16px;
+            cursor: pointer;
+            border: none;
+            transition: background-color 0.3s;
+        }
+        #sendRequest:hover, #jumpPage:hover {
+            background-color: #45a049;
+        }
+        #info {
+            display: block;
+            margin-top: 20px;
+            font-size: 16px;
+            color: #333;
+        }
+    </style>
+</head>
+<body>
+<h1>Welcome to the Login Page</h1>
+<p>Click the button below to log in and view response data:</p>
+
+<button id="sendRequest">Login</button>
+<button id="jumpPage">Go to Page</button>
+
+<div>
+    <h3>Server Response:</h3>
+    <span id="info">No response yet</span>
+</div>
+
+<script>
+    // const baseUrl='http://127.0.0.1:8081'
+    const baseUrl = 'http://47.108.138.128:8081';
+    document.getElementById("sendRequest").addEventListener('click', async (e) => {
+        const url = `${baseUrl}/app-api/member/auth/login`;
+        const data = {
+            mobile: "19183527031",
+            password: "123456"
+        };
+
+        try {
+            let response = await fetch(url, {
+                method: 'POST',
+                "Access-Control-Allow-Origin" : "*",
+                "Access-Control-Allow-Credentials" : true,
+                headers: {
+                    'Content-Type': 'application/json' // 携带 token
+                },
+                body: JSON.stringify(data)
+            });
+
+            if (!response.ok) {
+                throw new Error('Login failed');
+            }
+
+            let responseData = await response.json();
+            document.getElementById("info").innerText = `Response:WELCOME-> ${JSON.stringify(responseData.data.accessToken)}`;
+            localStorage.setItem('token', responseData.data.accessToken);
+        } catch (error) {
+            document.getElementById("info").innerText = `Error: ${error.message}`;
+        }
+    });
+
+    document.getElementById("jumpPage").addEventListener("click", (e) => {
+        // Redirect to another page
+        // window.location.replace('http://47.108.138.128:8087/satics/show.html');
+        window.location.replace(`/statics/show.html`);
+
+    });
+</script>
+</body>
+</html>
