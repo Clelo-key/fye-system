@@ -5,7 +5,7 @@
         </div>
         <div class="content">
             <div class="login-form">
-                <el-input placeholder="请输入用户名或者手机号" :minlength="11" :maxlength="11" v-model="form.phone">
+                <el-input placeholder="请输入用户名或者手机号" :minlength="11" :maxlength="11" v-model="form.mobile">
                 </el-input>
                 <el-input placeholder="请输入密码" v-model="form.password" show-password> </el-input>
             </div>
@@ -20,7 +20,7 @@
 import loginService from '@/api/login'
 import { ElMessage } from 'element-plus'
 import { computed } from 'vue'
-const form = ref({ phone: '', password: '' })
+const form = ref({ mobile: '', password: '' })
 
 // 有效输入
 const validationInput = computed(() => {

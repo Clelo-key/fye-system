@@ -1,8 +1,8 @@
 import http from '@/utils/http'
 
 export default {
-    login({ phone, password }) {
-        return http.post('/app-api/member/auth/login', { phone, password }).then((res) => {
+    login({ mobile, password }) {
+        return http.post('/app-api/member/auth/login', { mobile, password }).then((res) => {
             return res.data
         })
     }
