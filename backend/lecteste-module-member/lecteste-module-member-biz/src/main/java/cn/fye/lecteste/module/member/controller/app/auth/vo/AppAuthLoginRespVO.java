@@ -22,4 +22,5 @@ public class AppAuthLoginRespVO {
     private String refreshToken;
 
     private LocalDateTime expiresTime;
+
 }

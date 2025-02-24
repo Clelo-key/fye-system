@@ -5,8 +5,8 @@ spring:
     allow-circular-references: true # 允许循环依赖，因为项目是三层架构，无法避免这个情况。
   mvc:
     staticPathPattern: "/statics/**"
+    throw-exception-if-no-handler-found: true
   datasource:
-#    47.108.138.128
     url: jdbc:mysql://localhost:3306/lecteste?useSSL=false&serverTimezone=Asia/Shanghai&allowPublicKeyRetrieval=true&nullCatalogMeansCurrent=true&rewriteBatchedStatements=true
     username: root
     password: 123456
@@ -16,10 +16,6 @@ spring:
     druid:
       min-idle: 0 # 池中维护的最小空闲连接数，默认为 0 个。
       max-active: 20 # 池中最大连接数，包括闲置和使用中的连接，默认为 8 个。
-  security:
-    user:
-      name: admin
-      password: $2a$04$l3aRNbs.CpqIvVLDZMq3vOlHU//CLCIoPt4XMcweB9xJ.sglOXQze
 
 # mybatis-plus 配置内容
 mybatis-plus:

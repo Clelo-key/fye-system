@@ -3,8 +3,8 @@ package cn.fye.lecteste.framework.common.validation;
 import cn.fye.lecteste.framework.common.core.IntArrayValuable;
 import cn.hutool.core.collection.CollUtil;
 
-import javax.validation.ConstraintValidator;
-import javax.validation.ConstraintValidatorContext;
+import jakarta.validation.ConstraintValidator;
+import jakarta.validation.ConstraintValidatorContext;
 import java.util.Arrays;
 import java.util.Collection;
 import java.util.Collections;

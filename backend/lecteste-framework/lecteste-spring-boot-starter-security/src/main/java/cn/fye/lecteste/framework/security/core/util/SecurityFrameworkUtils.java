@@ -1,13 +1,18 @@
-package cn.fye.lecteste.framework.security.core.utils;
+package cn.fye.lecteste.framework.security.core.util;
 
 import cn.fye.lecteste.framework.security.core.LoginUser;
+import org.springframework.security.authentication.UsernamePasswordAuthenticationToken;
 import cn.hutool.core.util.StrUtil;
 import jakarta.annotation.Nullable;
+import cn.fye.lecteste.framework.web.core.util.WebFrameworkUtils;
 import jakarta.servlet.http.HttpServletRequest;
 import org.springframework.security.core.Authentication;
 import org.springframework.security.core.context.SecurityContext;
 import org.springframework.security.core.context.SecurityContextHolder;
+import org.springframework.security.web.authentication.WebAuthenticationDetailsSource;
 import org.springframework.util.StringUtils;
+
+import java.util.Collections;
 
 /**
  * @Author: Fly
@@ -60,6 +65,17 @@ public class SecurityFrameworkUtils {
     }
 
     /**
+     * 获得当前用户的编号，从上下文中
+     *
+     * @return 用户编号
+     */
+    @Nullable
+    public static Long getLoginUserId() {
+        LoginUser loginUser = getLoginUser();
+        return loginUser != null ? loginUser.getId() : null;
+    }
+
+    /**
      * 获取当前用户
      *
      * @return 当前用户
@@ -73,36 +89,23 @@ public class SecurityFrameworkUtils {
         return authentication.getPrincipal() instanceof LoginUser ? (LoginUser) authentication.getPrincipal() : null;
     }
 
-    /**
-     * 获得当前用户的编号，从上下文中
-     *
-     * @return 用户编号
-     */
-    @Nullable
-    public static Long getLoginUserId() {
-        LoginUser loginUser = getLoginUser();
-        return loginUser != null ? loginUser.getId() : null;
+    public static void setLoginUser(LoginUser loginUser, HttpServletRequest request) {
+        // 创建 Authentication，并设置到上下文
+        Authentication authentication = buildAuthentication(loginUser, request);
+        SecurityContextHolder.getContext().setAuthentication(authentication);
+
+        // 额外设置到 request 中，用于 ApiAccessLogFilter 可以获取到用户编号；
+        // 原因是，Spring Security 的 Filter 在 ApiAccessLogFilter 后面，在它记录访问日志时，线上上下文已经没有用户编号等信息
+        WebFrameworkUtils.setLoginUserId(request, loginUser.getId());
+        WebFrameworkUtils.setLoginUserType(request, loginUser.getUserType());
     }
 
-    /**
-     * 获得当前用户的昵称，从上下文中
-     *
-     * @return 昵称
-     */
-    @Nullable
-    public static String getLoginUserNickname() {
-        LoginUser loginUser = getLoginUser();
-        return loginUser != null ? MapUtil.getStr(loginUser.getInfo(), LoginUser.INFO_KEY_NICKNAME) : null;
+    private static Authentication buildAuthentication(LoginUser loginUser, HttpServletRequest request) {
+        // 创建 UsernamePasswordAuthenticationToken 对象
+        UsernamePasswordAuthenticationToken authenticationToken = new UsernamePasswordAuthenticationToken(
+                loginUser, null, Collections.emptyList());
+        authenticationToken.setDetails(new WebAuthenticationDetailsSource().buildDetails(request));
+        return authenticationToken;
     }
 
-    /**
-     * 获得当前用户的部门编号，从上下文中
-     *
-     * @return 部门编号
-     */
-    @Nullable
-    public static Long getLoginUserDeptId() {
-        LoginUser loginUser = getLoginUser();
-        return loginUser != null ? MapUtil.getLong(loginUser.getInfo(), LoginUser.INFO_KEY_DEPT_ID) : null;
-    }
 }

@@ -5,10 +5,10 @@
   <parent>
     <groupId>cn.fye.boot</groupId>
     <artifactId>lecteste-module-member</artifactId>
-    <version>2.2.0-jdk8-snapshot</version>
+    <version>2.2.0-jdk17-snapshot</version>
   </parent>
   <artifactId>lecteste-module-member-api</artifactId>
-  <version>2.2.0-jdk8-snapshot</version>
+  <version>2.2.0-jdk17-snapshot</version>
   <name>${project.artifactId}</name>
   <description>member模块 API，暴露给其它模块调用</description>
   <dependencies>

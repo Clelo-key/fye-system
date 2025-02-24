@@ -1,11 +1,9 @@
 package cn.fye.lecteste.module.member.service.user;
 
 import cn.fye.lecteste.framework.common.enums.CommonStatusEnum;
-import cn.hutool.core.util.IdUtil;
 import cn.hutool.core.util.RandomUtil;
 import cn.hutool.core.util.StrUtil;
 import jakarta.annotation.Resource;
-import lombok.extern.slf4j.Slf4j;
 import org.springframework.stereotype.Service;
 import cn.fye.lecteste.module.member.dal.dataobject.user.MemberUserDO;
 import cn.fye.lecteste.module.member.dal.mysql.user.MemberUserMapper;
@@ -34,9 +32,10 @@ public class MemberUserServiceImpl implements MemberUserService {
     }
 
     @Override
-    public MemberUserDO createUser(String mobile, String password) {
-        return createUser(mobile, null,password);
+    public MemberUserDO createUser(String mobile, String nikeName,String password) {
+        return createUserI(mobile, nikeName,password);
     }
+
 
     /**
      * 对密码进行加密
@@ -48,7 +47,7 @@ public class MemberUserServiceImpl implements MemberUserService {
         return passwordEncoder.encode(password);
     }
 
-    private MemberUserDO createUser(String mobile, String nickname, String password) {
+    private MemberUserDO createUserI(String mobile, String nickname, String password) {
         // 插入用户
         MemberUserDO user = new MemberUserDO();
         user.setMobile(mobile);

@@ -4,7 +4,7 @@
   <modelVersion>4.0.0</modelVersion>
   <groupId>cn.fye.boot</groupId>
   <artifactId>fye</artifactId>
-  <version>2.2.0-jdk8-snapshot</version>
+  <version>2.2.0-jdk17-snapshot</version>
   <packaging>pom</packaging>
   <name>${project.artifactId}</name>
   <description>Demo project for Spring Boot</description>
@@ -14,8 +14,6 @@
     <module>lecteste-framework</module>
     <module>lecteste-module-system</module>
     <module>lecteste-module-member</module>
-    <module>lecteste-module-forum</module>
-    <module>lecteste-module-pay</module>
   </modules>
   <properties>
     <lombok.version>1.18.34</lombok.version>
@@ -28,16 +26,21 @@
     <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
     <spring.boot.version>3.2.0</spring.boot.version>
     <flatten-maven-plugin.version>1.6.0</flatten-maven-plugin.version>
-    <revision>2.2.0-jdk8-snapshot</revision>
+    <revision>2.2.0-jdk17-snapshot</revision>
   </properties>
   <dependencyManagement>
     <dependencies>
       <dependency>
         <groupId>cn.fye.boot</groupId>
         <artifactId>lecteste-dependencies</artifactId>
-        <version>2.2.0-jdk8-snapshot</version>
+        <version>2.2.0-jdk17-snapshot</version>
         <type>pom</type>
         <scope>import</scope>
+      </dependency>
+      <dependency>
+        <groupId>org.springframework.boot</groupId>
+        <artifactId>spring-boot-starter-tomcat</artifactId>
+        <scope>provided</scope>
       </dependency>
     </dependencies>
   </dependencyManagement>

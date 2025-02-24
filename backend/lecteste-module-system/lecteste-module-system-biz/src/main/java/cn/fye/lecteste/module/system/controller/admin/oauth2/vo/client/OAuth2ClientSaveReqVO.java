@@ -1,12 +1,12 @@
 package cn.fye.lecteste.module.system.controller.admin.oauth2.vo.client;
 
-import cn.fye.lecteste.framework.common.utils.json.JsonUtils;
+import cn.fye.lecteste.framework.common.util.json.JsonUtils;
 import cn.hutool.core.util.StrUtil;
 import lombok.Data;
 
-import javax.validation.constraints.AssertTrue;
-import javax.validation.constraints.NotEmpty;
-import javax.validation.constraints.NotNull;
+import jakarta.validation.constraints.AssertTrue;
+import jakarta.validation.constraints.NotEmpty;
+import jakarta.validation.constraints.NotNull;
 import java.util.List;
 
 @Data

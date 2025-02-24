@@ -3,7 +3,7 @@ package cn.fye.lecteste;
 import cn.hutool.core.io.FileTypeUtil;
 import cn.hutool.core.io.FileUtil;
 import cn.hutool.core.util.StrUtil;
-import cn.fye.lecteste.framework.common.utils.collection.SetUtils;
+import cn.fye.lecteste.framework.common.util.collection.SetUtils;
 import lombok.extern.slf4j.Slf4j;
 
 import java.io.File;

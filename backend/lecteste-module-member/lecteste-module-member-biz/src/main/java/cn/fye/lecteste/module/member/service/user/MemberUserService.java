@@ -24,6 +24,7 @@ public interface MemberUserService {
      * @param password   密码
      * @return 用户对象
      */
-    MemberUserDO createUser(String mobile, String password);
+    MemberUserDO createUser(String mobile,String nikeName, String password);
+
 
 }

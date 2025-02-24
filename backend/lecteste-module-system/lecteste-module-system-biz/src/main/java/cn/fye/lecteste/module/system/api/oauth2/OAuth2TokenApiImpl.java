@@ -1,6 +1,6 @@
 package cn.fye.lecteste.module.system.api.oauth2;
 
-import cn.fye.lecteste.framework.common.utils.object.BeanUtils;
+import cn.fye.lecteste.framework.common.util.object.BeanUtils;
 import cn.fye.lecteste.module.system.api.oauth2.dto.OAuth2AccessTokenCheckRespDTO;
 import cn.fye.lecteste.module.system.api.oauth2.dto.OAuth2AccessTokenCreateReqDTO;
 import cn.fye.lecteste.module.system.api.oauth2.dto.OAuth2AccessTokenRespDTO;

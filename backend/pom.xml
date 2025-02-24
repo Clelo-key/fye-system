@@ -18,7 +18,7 @@
     </modules>
 
     <properties>
-        <revision>2.2.0-jdk8-snapshot</revision>
+        <revision>2.2.0-jdk17-snapshot</revision>
         <!-- Maven 相关 -->
         <java.version>17</java.version>
         <maven.compiler.source>${java.version}</maven.compiler.source>
@@ -42,6 +42,12 @@
                 <version>${revision}</version>
                 <type>pom</type>
                 <scope>import</scope>
+            </dependency>
+            <!--排除内置tomcat jar包-->
+            <dependency>
+                <groupId>org.springframework.boot</groupId>
+                <artifactId>spring-boot-starter-tomcat</artifactId>
+                <scope>provided</scope>
             </dependency>
         </dependencies>
     </dependencyManagement>

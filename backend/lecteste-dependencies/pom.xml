@@ -12,7 +12,7 @@
     <description>基础 bom 文件，管理整个项目的依赖版本</description>
 
     <properties>
-        <revision>2.2.0-jdk8-snapshot</revision>
+        <revision>2.2.0-jdk17-snapshot</revision>
         <flatten-maven-plugin.version>1.6.0</flatten-maven-plugin.version>
         <!-- 统一依赖管理 -->
         <!--        <spring.boot.version>2.7.18</spring.boot.version>-->
@@ -64,7 +64,6 @@
         <tika-core.version>2.9.2</tika-core.version>
         <ip2region.version>2.7.0</ip2region.version>
         <bizlog-sdk.version>3.0.6</bizlog-sdk.version>
-        <validation.version>2.0.2</validation.version>
         <!-- 三方云服务相关 -->
         <okio.version>3.5.0</okio.version>
         <okhttp3.version>4.11.0</okhttp3.version>
@@ -141,7 +140,7 @@
             <dependency>
                 <groupId>cn.fye.boot</groupId>
                 <artifactId>lecteste-spring-boot-starter-security</artifactId>
-                <version>2.2.0-jdk8-snapshot</version>
+                <version>${revision}</version>
             </dependency>
 
             <dependency>
@@ -164,12 +163,6 @@
                 <groupId>cn.hutool</groupId>
                 <artifactId>hutool-all</artifactId>
                 <version>${hutool.version}</version>
-            </dependency>
-
-            <dependency>
-                <groupId>jakarta.validation</groupId>
-                <artifactId>jakarta.validation-api</artifactId>
-                <version>${validation.version}</version>
             </dependency>
 
             <dependency>

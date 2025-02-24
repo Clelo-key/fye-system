@@ -2,54 +2,88 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-    <title>Title</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Login and Redirect</title>
     <style>
-        #sendRequest,#loginOut{
-            width: 100px;
-            height: 30px;
-            border-radius: 28px;
-            box-shadow: 6px 5px 10px #666666;
-            color: #ef9494;
-            font-size: 15px;
-            text-decoration: none;
-            margin-top: 30px;
+        body {
+            font-family: Arial, sans-serif;
+            text-align: center;
+            padding: 50px;
+        }
+        #sendRequest, #jumpPage {
+            width: 150px;
+            height: 40px;
+            border-radius: 20px;
+            box-shadow: 4px 4px 8px rgba(0, 0, 0, 0.2);
+            color: #fff;
+            background-color: #4CAF50;
+            font-size: 16px;
+            cursor: pointer;
+            border: none;
+            transition: background-color 0.3s;
+        }
+        #sendRequest:hover, #jumpPage:hover {
+            background-color: #45a049;
+        }
+        #info {
+            display: block;
+            margin-top: 20px;
+            font-size: 16px;
+            color: #333;
         }
     </style>
 </head>
 <body>
-Hello World
-<br>
-<button id="sendRequest">发送请求</button>
-<button id="loginOut">退出登录</button>
-<br><br>
-请求到的信息:<span id="info"></span>
-</body>
+<h1>Welcome to the Login Page</h1>
+<p>Click the button below to log in and view response data:</p>
+
+<button id="sendRequest">Login</button>
+<button id="jumpPage">Go to Page</button>
+
+<div>
+    <h3>Server Response:</h3>
+    <span id="info">No response yet</span>
+</div>
+
 <script>
-    // 获取按钮
-    let sendButton=document.getElementById("sendRequest")
-    // 监听按钮点击事件
-    sendButton.addEventListener('click',(e)=>{
-        const Http = new XMLHttpRequest();
-        // const url='http://47.108.138.128:8087/pay/order?mobile=';
-        const url='http://localhost:8081/app-api/user/admin?mobile=';
-        Http.open("GET", url+'110');
-        Http.send();
-        // 等待服务器响应后回调
-        Http.onreadystatechange = (e) => {
-            let node=document.getElementById("info")
-            node.innerText=Http.responseText
+    // const baseUrl='http://127.0.0.1:8081'
+    const baseUrl = 'http://47.108.138.128:8081';
+    document.getElementById("sendRequest").addEventListener('click', async (e) => {
+        const url = `${baseUrl}/app-api/member/auth/login`;
+        const data = {
+            mobile: "19183527031",
+            password: "123456"
+        };
+
+        try {
+            let response = await fetch(url, {
+                method: 'POST',
+                "Access-Control-Allow-Origin" : "*",
+                "Access-Control-Allow-Credentials" : true,
+                headers: {
+                    'Content-Type': 'application/json' // 携带 token
+                },
+                body: JSON.stringify(data)
+            });
+
+            if (!response.ok) {
+                throw new Error('Login failed');
+            }
+
+            let responseData = await response.json();
+            document.getElementById("info").innerText = `Response:WELCOME-> ${JSON.stringify(responseData.data.accessToken)}`;
+            localStorage.setItem('token', responseData.data.accessToken);
+        } catch (error) {
+            document.getElementById("info").innerText = `Error: ${error.message}`;
         }
-    })
+    });
 
+    document.getElementById("jumpPage").addEventListener("click", (e) => {
+        // Redirect to another page
+        // window.location.replace('http://47.108.138.128:8087/satics/show.html');
+        window.location.replace(`/statics/show.html`);
 
-    let loginOutButton= document.getElementById("loginOut")
-    loginOutButton.addEventListener("click",(e)=>{
-        const Http = new XMLHttpRequest();
-        // const url='http://47.108.138.128:8087/pay/order?mobile=';
-        const url='http://localhost:8081/logout';
-        Http.open("GET", url);
-        Http.send();
-    })
-
+    });
 </script>
+</body>
 </html>

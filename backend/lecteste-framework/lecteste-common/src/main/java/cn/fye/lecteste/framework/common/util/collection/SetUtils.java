@@ -1,4 +1,4 @@
-package cn.fye.lecteste.framework.common.utils.collection;
+package cn.fye.lecteste.framework.common.util.collection;
 
 import cn.hutool.core.collection.CollUtil;
 

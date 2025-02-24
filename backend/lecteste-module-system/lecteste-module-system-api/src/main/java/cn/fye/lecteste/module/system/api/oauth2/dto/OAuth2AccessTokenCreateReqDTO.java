@@ -2,17 +2,21 @@ package cn.fye.lecteste.module.system.api.oauth2.dto;
 
 import cn.fye.lecteste.framework.common.enums.UserTypeEnum;
 import cn.fye.lecteste.framework.common.validation.InEnum;
-import lombok.Data;
+import lombok.*;
+import lombok.experimental.Accessors;
 
-import javax.validation.constraints.NotNull;
+import jakarta.validation.constraints.NotNull;
 import java.io.Serializable;
-import java.util.ArrayList;
 import java.util.List;
 
 /**
  * @author 芋道源码
  */
+
 @Data
+@Accessors(chain = true)
+@NoArgsConstructor
+@AllArgsConstructor
 public class OAuth2AccessTokenCreateReqDTO  implements Serializable {
     /**
      * 用户编号
@@ -34,5 +38,4 @@ public class OAuth2AccessTokenCreateReqDTO  implements Serializable {
      * 授权范围
      */
     private List<String> scopes;
-
 }

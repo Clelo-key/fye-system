@@ -3,7 +3,7 @@ package cn.fye.lecteste.module.member.service.auth;
 import cn.fye.lecteste.module.member.controller.app.auth.vo.AppAuthLoginReqVO;
 import cn.fye.lecteste.module.member.controller.app.auth.vo.AppAuthLoginRespVO;
 
-import javax.validation.Valid;
+import jakarta.validation.Valid;
 
 public interface MemberAuthService {
     /**

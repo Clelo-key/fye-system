@@ -22,15 +22,16 @@ import org.springframework.security.web.SecurityFilterChain;
 import org.springframework.security.web.access.AccessDeniedHandler;
 import org.springframework.security.web.authentication.UsernamePasswordAuthenticationFilter;
 import org.springframework.web.bind.annotation.RequestMethod;
+import org.springframework.web.cors.CorsConfiguration;
+import org.springframework.web.cors.UrlBasedCorsConfigurationSource;
 import org.springframework.web.method.HandlerMethod;
 import org.springframework.web.servlet.mvc.method.RequestMappingInfo;
 import org.springframework.web.servlet.mvc.method.annotation.RequestMappingHandlerMapping;
 import org.springframework.web.util.pattern.PathPattern;
 import java.util.HashSet;
-import java.util.List;
 import java.util.Map;
 import java.util.Set;
-import static cn.fye.lecteste.framework.common.utils.collection.CollectionUtils.convertList;
+import static cn.fye.lecteste.framework.common.util.collection.CollectionUtils.convertList;
 
 @AutoConfiguration
 @EnableMethodSecurity(securedEnabled = true)
@@ -41,8 +42,8 @@ public class LectesteWebSecurityConfigurerAdapter {
     /**
      * 认证失败处理类 Bean
      */
-    @Resource
-    private AuthenticationEntryPoint authenticationEntryPoint;
+//    @Resource
+//    private AuthenticationEntryPoint authenticationEntryPoint;
     /**
      * 权限不够处理器 Bean
      */
@@ -66,10 +67,10 @@ public class LectesteWebSecurityConfigurerAdapter {
                 .csrf(AbstractHttpConfigurer::disable)
                 // 基于 token 机制，所以不需要 Session
                 .sessionManagement(c -> c.sessionCreationPolicy(SessionCreationPolicy.STATELESS))
-                .headers(c -> c.frameOptions(HeadersConfigurer.FrameOptionsConfig::disable))
+                .headers(c -> c.frameOptions(HeadersConfigurer.FrameOptionsConfig::disable));
                 // 一堆自定义的 Spring Security 处理器
-                .exceptionHandling(c -> c.authenticationEntryPoint(authenticationEntryPoint)
-                        .accessDeniedHandler(accessDeniedHandler));
+//                .exceptionHandling(c -> c.authenticationEntryPoint(authenticationEntryPoint)
+//                        .accessDeniedHandler(accessDeniedHandler));
         // 登录、登录暂时不使用 Spring Security 的拓展点，主要考虑一方面拓展多用户、多种登录方式相对复杂，一方面用户的学习成本较高
 
         // 获得 @PermitAll 带来的 URL 列表，免登录
@@ -79,7 +80,7 @@ public class LectesteWebSecurityConfigurerAdapter {
                 // ①：全局共享规则
                 .authorizeHttpRequests(c -> c
                         // 1.1 静态资源，可匿名访问
-                        .requestMatchers(HttpMethod.GET, "/*.html", "/*.html", "/*.css", "/*.js").permitAll()
+                        .requestMatchers(HttpMethod.GET, "/statics/*").permitAll()
                         // 1.2 设置 @PermitAll 无需认证
                         .requestMatchers(HttpMethod.GET, permitAllUrls.get(HttpMethod.GET).toArray(new String[0])).permitAll()
                         .requestMatchers(HttpMethod.POST, permitAllUrls.get(HttpMethod.POST).toArray(new String[0])).permitAll()
@@ -99,6 +100,17 @@ public class LectesteWebSecurityConfigurerAdapter {
         return httpSecurity.build();
     }
 
+    @Bean
+    public UrlBasedCorsConfigurationSource corsConfigurationSource() {
+        CorsConfiguration configuration = new CorsConfiguration();
+        configuration.addAllowedOrigin("*");  // 允许所有来源，按需修改
+        configuration.addAllowedMethod("*");  // 允许所有方法
+        configuration.addAllowedHeader("*");  // 允许所有请求头
+        UrlBasedCorsConfigurationSource source = new UrlBasedCorsConfigurationSource();
+        source.registerCorsConfiguration("/**", configuration);
+        return source;
+    }
+
     private Multimap<HttpMethod, String> getPermitAllUrlsFromAnnotations() {
         Multimap<HttpMethod, String> result = HashMultimap.create();
         // 获得接口对应的 HandlerMethod 集合
@@ -108,6 +120,7 @@ public class LectesteWebSecurityConfigurerAdapter {
         // 获得有 @PermitAll 注解的接口
         for (Map.Entry<RequestMappingInfo, HandlerMethod> entry : handlerMethodMap.entrySet()) {
             HandlerMethod handlerMethod = entry.getValue();
+
             if (!handlerMethod.hasMethodAnnotation(PermitAll.class)) {
                 continue;
             }

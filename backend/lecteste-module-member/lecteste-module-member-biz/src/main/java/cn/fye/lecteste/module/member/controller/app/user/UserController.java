@@ -22,7 +22,7 @@ public class UserController {
      * @apiNote Spring Security权限测试
      */
     @GetMapping("/normal")
-    @PreAuthorize("hasAnyRole('NORMAL','ADMIN')")
+    @PreAuthorize("@ss.hasRole('MEMBER')")
     public CommonResult<MemberUserDO> getNormalUserByMobile(@RequestParam("mobile") String mobile){
         MemberUserDO userByMobile = memberUserService.getUserByMobile(mobile);
         userByMobile.setMobile("I Am NORMAL");
@@ -32,10 +32,10 @@ public class UserController {
      * @apiNote Spring Security权限测试
      */
     @GetMapping("/admin")
-    @PreAuthorize("hasRole('ADMIN')")
+    @PreAuthorize("@ss.hasRole('ADMIN')")
     public CommonResult<MemberUserDO> getAdminUserByMobile(@RequestParam("mobile") String mobile){
         MemberUserDO userByMobile = memberUserService.getUserByMobile(mobile);
-        userByMobile.setMobile("I Am ADMIN");
+//        userByMobile.setMobile("I Am ADMIN");
         return success(userByMobile);
     }
 }

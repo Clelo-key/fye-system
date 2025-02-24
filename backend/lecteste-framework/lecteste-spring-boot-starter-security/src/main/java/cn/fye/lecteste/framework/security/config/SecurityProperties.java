@@ -2,7 +2,7 @@ package cn.fye.lecteste.framework.security.config;
 import lombok.Data;
 import org.springframework.boot.context.properties.ConfigurationProperties;
 
-import javax.validation.constraints.NotEmpty;
+import jakarta.validation.constraints.NotEmpty;
 import java.util.Collections;
 import java.util.List;
 
@@ -28,7 +28,7 @@ public class SecurityProperties {
     /**
      * PasswordEncoder 加密复杂度，越高开销越大
      */
-    private Integer passwordEncoderLength = 4;
+    private Integer passwordEncoderLength = 5;
 
     /**
      * 免登录的 URL 列表

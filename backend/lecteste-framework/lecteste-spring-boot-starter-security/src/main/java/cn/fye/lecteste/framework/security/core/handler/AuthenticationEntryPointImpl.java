@@ -8,9 +8,10 @@ import org.springframework.security.web.AuthenticationEntryPoint;
 
 import java.io.IOException;
 
-public class AuthenticationEntryPointImpl implements AuthenticationEntryPoint {
-    @Override
-    public void commence(HttpServletRequest request, HttpServletResponse response, AuthenticationException authException) throws IOException, ServletException {
-        System.out.println(request.getRequestURI());
-    }
+public class AuthenticationEntryPointImpl  {
+//    @Override
+//    public void commence(HttpServletRequest request, HttpServletResponse response, AuthenticationException e) {
+//        // 返回 401
+//        ServletUtils.writeJSON(response, CommonResult.error(UNAUTHORIZED));
+//    }
 }

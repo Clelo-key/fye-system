@@ -45,6 +45,10 @@
             <artifactId>spring-boot-starter-validation</artifactId>
             <optional>false</optional>
         </dependency>
+        <dependency>
+            <groupId>cn.fye.boot</groupId>
+            <artifactId>lecteste-spring-boot-starter-security</artifactId>
+        </dependency>
 
     </dependencies>
 

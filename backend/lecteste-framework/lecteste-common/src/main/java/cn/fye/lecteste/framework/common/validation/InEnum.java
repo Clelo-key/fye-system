@@ -2,8 +2,8 @@ package cn.fye.lecteste.framework.common.validation;
 
 import cn.fye.lecteste.framework.common.core.IntArrayValuable;
 
-import javax.validation.Constraint;
-import javax.validation.Payload;
+import jakarta.validation.Constraint;
+import jakarta.validation.Payload;
 import java.lang.annotation.*;
 
 /**

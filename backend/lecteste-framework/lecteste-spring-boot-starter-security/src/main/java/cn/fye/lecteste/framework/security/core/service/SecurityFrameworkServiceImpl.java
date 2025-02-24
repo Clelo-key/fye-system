@@ -3,6 +3,8 @@ package cn.fye.lecteste.framework.security.core.service;
 import cn.fye.lecteste.module.system.api.permission.PermissionApi;
 import lombok.AllArgsConstructor;
 
+import static cn.fye.lecteste.framework.security.core.util.SecurityFrameworkUtils.getLoginUserId;
+
 /**
  * 默认的 {@link SecurityFrameworkService} 实现类
  *
@@ -25,12 +27,16 @@ public class SecurityFrameworkServiceImpl implements SecurityFrameworkService {
 
     @Override
     public boolean hasRole(String role) {
-        return false;
+        Long userId = getLoginUserId();
+        if (userId == null) {
+            return false;
+        }
+        return permissionApi.hasAnyRoles(userId,role);
     }
 
     @Override
     public boolean hasAnyRoles(String... roles) {
-        return false;
+        return true;
     }
 
     @Override
