@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project xmlns="http://maven.apache.org/POM/4.0.0"
+         xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+         xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
+    <parent>
+        <groupId>cn.fye.cloud</groupId>
+        <artifactId>fye-system</artifactId>
+        <version>${revision}</version>
+    </parent>
+    <packaging>jar</packaging>
+    <artifactId>fye-gateway</artifactId>
+    <modelVersion>4.0.0</modelVersion>
+
+    <dependencies>
+        <!-- web相关 -->
+        <dependency>
+            <groupId>cn.fye.cloud</groupId>
+            <artifactId>fye-spring-boot-starter-web</artifactId>
+        </dependency>
+
+    </dependencies>
+
+
+
+</project>

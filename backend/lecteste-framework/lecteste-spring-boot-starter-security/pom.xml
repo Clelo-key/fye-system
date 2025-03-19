@@ -15,7 +15,6 @@
             <groupId>cn.fye.boot</groupId>
             <artifactId>lecteste-common</artifactId>
         </dependency>
-
         <!-- Spring 核心 -->
         <dependency>
             <groupId>org.springframework.boot</groupId>
