@@ -5,10 +5,10 @@
   <parent>
     <groupId>cn.fye.boot</groupId>
     <artifactId>fye</artifactId>
-    <version>2.2.0-jdk8-snapshot</version>
+    <version>2.2.0-jdk17-snapshot</version>
   </parent>
   <artifactId>lecteste-module-member</artifactId>
-  <version>2.2.0-jdk8-snapshot</version>
+  <version>2.2.0-jdk17-snapshot</version>
   <packaging>pom</packaging>
   <description>member 模块下，我们放用户业务。
         例如说：用户中心</description>

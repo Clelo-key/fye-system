@@ -15,12 +15,10 @@
         <module>lecteste-framework</module>
         <module>lecteste-module-system</module>
         <module>lecteste-module-member</module>
-        <module>lecteste-module-forum</module>
-        <module>lecteste-module-pay</module>
     </modules>
 
     <properties>
-        <revision>2.2.0-jdk8-snapshot</revision>
+        <revision>2.2.0-jdk17-snapshot</revision>
         <!-- Maven 相关 -->
         <java.version>17</java.version>
         <maven.compiler.source>${java.version}</maven.compiler.source>
@@ -30,7 +28,7 @@
         <flatten-maven-plugin.version>1.6.0</flatten-maven-plugin.version>
         <!-- 看看咋放到 bom 里 -->
         <lombok.version>1.18.34</lombok.version>
-<!--        <spring.boot.version>2.7.18</spring.boot.version>-->
+        <!-- <spring.boot.version>2.7.18</spring.boot.version>-->
         <spring.boot.version>3.2.0</spring.boot.version>
         <mapstruct.version>1.5.5.Final</mapstruct.version>
         <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
@@ -44,6 +42,12 @@
                 <version>${revision}</version>
                 <type>pom</type>
                 <scope>import</scope>
+            </dependency>
+            <!--排除内置tomcat jar包-->
+            <dependency>
+                <groupId>org.springframework.boot</groupId>
+                <artifactId>spring-boot-starter-tomcat</artifactId>
+                <scope>provided</scope>
             </dependency>
         </dependencies>
     </dependencyManagement>

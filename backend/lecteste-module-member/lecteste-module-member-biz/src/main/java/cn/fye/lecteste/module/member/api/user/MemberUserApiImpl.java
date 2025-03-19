@@ -5,7 +5,6 @@ import cn.fye.lecteste.module.member.convert.user.MemberUserConvert;
 import cn.fye.lecteste.module.member.dal.dataobject.user.MemberUserDO;
 import cn.fye.lecteste.module.member.service.user.MemberUserService;
 import jakarta.annotation.Resource;
-import org.springframework.stereotype.Component;
 import org.springframework.stereotype.Service;
 
 /**

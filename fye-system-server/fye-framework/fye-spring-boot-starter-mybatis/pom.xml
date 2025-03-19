@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project xmlns="http://maven.apache.org/POM/4.0.0"
+         xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+         xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
+    <packaging>jar</packaging>
+    <name>${project.artifactId}</name>
+    <modelVersion>4.0.0</modelVersion>
+    <artifactId>fye-spring-boot-starter-mybatis</artifactId>
+    <parent>
+        <groupId>cn.fye.cloud</groupId>
+        <artifactId>fye-framework</artifactId>
+        <version>${revision}</version>
+    </parent>
+</project>

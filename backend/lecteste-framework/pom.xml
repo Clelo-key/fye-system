@@ -17,6 +17,7 @@
         <module>lecteste-common</module>
         <module>lecteste-spring-boot-starter-security</module>
         <module>lecteste-spring-boot-starter-mybatis</module>
+        <module>fye-spring-boot-start-redis</module>
     </modules>
 
 </project>

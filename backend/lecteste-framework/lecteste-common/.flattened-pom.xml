@@ -5,10 +5,10 @@
   <parent>
     <groupId>cn.fye.boot</groupId>
     <artifactId>lecteste-framework</artifactId>
-    <version>2.2.0-jdk8-snapshot</version>
+    <version>2.2.0-jdk17-snapshot</version>
   </parent>
   <artifactId>lecteste-common</artifactId>
-  <version>2.2.0-jdk8-snapshot</version>
+  <version>2.2.0-jdk17-snapshot</version>
   <name>${project.artifactId}</name>
   <description>定义通用的基础 pojo 类、枚举、工具类等等</description>
   <dependencies>
@@ -43,11 +43,6 @@
       <scope>provided</scope>
     </dependency>
     <dependency>
-      <groupId>jakarta.servlet</groupId>
-      <artifactId>jakarta.servlet-api</artifactId>
-      <scope>provided</scope>
-    </dependency>
-    <dependency>
       <groupId>org.projectlombok</groupId>
       <artifactId>lombok</artifactId>
     </dependency>
@@ -74,6 +69,11 @@
       <scope>provided</scope>
     </dependency>
     <dependency>
+      <groupId>org.slf4j</groupId>
+      <artifactId>slf4j-api</artifactId>
+      <scope>provided</scope>
+    </dependency>
+    <dependency>
       <groupId>cn.hutool</groupId>
       <artifactId>hutool-all</artifactId>
     </dependency>
@@ -96,6 +96,10 @@
       <groupId>org.springframework.boot</groupId>
       <artifactId>spring-boot-starter-test</artifactId>
       <scope>test</scope>
+    </dependency>
+    <dependency>
+      <groupId>org.apache.tomcat.embed</groupId>
+      <artifactId>tomcat-embed-core</artifactId>
     </dependency>
   </dependencies>
 </project>

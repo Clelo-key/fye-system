@@ -4,8 +4,8 @@ spring:
   main:
     allow-circular-references: true # 允许循环依赖，因为项目是三层架构，无法避免这个情况。
   mvc:
-    throw-exception-if-no-handler-found: true
     staticPathPattern: "/statics/**"
+    throw-exception-if-no-handler-found: true
   datasource:
     url: jdbc:mysql://localhost:3306/lecteste?useSSL=false&serverTimezone=Asia/Shanghai&allowPublicKeyRetrieval=true&nullCatalogMeansCurrent=true&rewriteBatchedStatements=true
     username: root
@@ -27,7 +27,6 @@ mybatis-plus:
       logic-delete-value: 1 # 逻辑已删除值(默认为 1)
       logic-not-delete-value: 0 # 逻辑未删除值(默认为 0)
   mapper-locations: classpath*:mapper/*.xml
-#  type-aliases-package: cn.fye.lecteste.springboot.lab12.mybatis.dataobject
 
 server:
   port: 8081
@@ -35,7 +34,6 @@ server:
     encoding:
       enabled: true
       charset: UTF-8 # 必须设置 UTF-8，避免 WebFlux 流式返回（AI 场景）会乱码问题
-      force: true
 
 lecteste:
   info:

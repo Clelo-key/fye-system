@@ -4,12 +4,11 @@
   <modelVersion>4.0.0</modelVersion>
   <groupId>cn.fye.boot</groupId>
   <artifactId>lecteste-dependencies</artifactId>
-  <version>2.2.0-jdk8-snapshot</version>
+  <version>2.2.0-jdk17-snapshot</version>
   <packaging>pom</packaging>
   <name>${project.artifactId}</name>
   <description>基础 bom 文件，管理整个项目的依赖版本</description>
   <properties>
-    <validation.version>2.0.2</validation.version>
     <tika-core.version>2.9.2</tika-core.version>
     <podam.version>7.2.11.RELEASE</podam.version>
     <captcha-plus.version>1.0.10</captcha-plus.version>
@@ -19,12 +18,12 @@
     <mapstruct.version>1.5.5.Final</mapstruct.version>
     <fastjson.version>1.2.83</fastjson.version>
     <weixin-java.version>4.6.0</weixin-java.version>
-    <mybatis-plus-generator.version>3.5.7</mybatis-plus-generator.version>
+    <mybatis-plus-generator.version>3.5.5</mybatis-plus-generator.version>
     <mybatis.version>3.5.16</mybatis.version>
     <opentracing.version>0.33.0</opentracing.version>
     <mybatis-plus-join.version>1.4.13</mybatis-plus-join.version>
     <kingbase.jdbc.version>8.6.0</kingbase.jdbc.version>
-    <revision>2.2.0-jdk8-snapshot</revision>
+    <revision>2.2.0-jdk17-snapshot</revision>
     <jsch.version>0.1.55</jsch.version>
     <xercesImpl.version>2.12.2</xercesImpl.version>
     <rocketmq-spring.version>2.3.0</rocketmq-spring.version>
@@ -77,7 +76,12 @@
       <dependency>
         <groupId>cn.fye.boot</groupId>
         <artifactId>lecteste-spring-boot-starter-web</artifactId>
-        <version>2.2.0-jdk8-snapshot</version>
+        <version>2.2.0-jdk17-snapshot</version>
+      </dependency>
+      <dependency>
+        <groupId>cn.fye.boot</groupId>
+        <artifactId>lecteste-spring-boot-starter-mybatis</artifactId>
+        <version>2.2.0-jdk17-snapshot</version>
       </dependency>
       <dependency>
         <groupId>com.alibaba</groupId>
@@ -102,7 +106,12 @@
       <dependency>
         <groupId>cn.fye.boot</groupId>
         <artifactId>lecteste-common</artifactId>
-        <version>2.2.0-jdk8-snapshot</version>
+        <version>2.2.0-jdk17-snapshot</version>
+      </dependency>
+      <dependency>
+        <groupId>cn.fye.boot</groupId>
+        <artifactId>lecteste-spring-boot-starter-security</artifactId>
+        <version>2.2.0-jdk17-snapshot</version>
       </dependency>
       <dependency>
         <groupId>org.mapstruct</groupId>
@@ -123,11 +132,6 @@
         <groupId>cn.hutool</groupId>
         <artifactId>hutool-all</artifactId>
         <version>${hutool.version}</version>
-      </dependency>
-      <dependency>
-        <groupId>jakarta.validation</groupId>
-        <artifactId>jakarta.validation-api</artifactId>
-        <version>${validation.version}</version>
       </dependency>
       <dependency>
         <groupId>org.mockito</groupId>
