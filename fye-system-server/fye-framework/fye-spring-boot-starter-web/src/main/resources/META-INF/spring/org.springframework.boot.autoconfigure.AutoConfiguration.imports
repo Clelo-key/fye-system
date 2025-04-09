@@ -1,0 +1,2 @@
+cn.fye.cloud.framework.swagger.config.FyeSwaggerAutoConfiguration
+cn.fye.cloud.framework.web.config.FyeWebAutoConfiguration

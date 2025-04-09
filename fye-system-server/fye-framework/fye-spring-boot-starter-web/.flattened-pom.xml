@@ -1,0 +1,36 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 https://maven.apache.org/xsd/maven-4.0.0.xsd" xmlns="http://maven.apache.org/POM/4.0.0"
+    xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+  <modelVersion>4.0.0</modelVersion>
+  <parent>
+    <groupId>cn.fye.cloud</groupId>
+    <artifactId>fye-framework</artifactId>
+    <version>0.0.1-jdk17-snapshot</version>
+  </parent>
+  <artifactId>fye-spring-boot-starter-web</artifactId>
+  <version>0.0.1-jdk17-snapshot</version>
+  <dependencies>
+    <dependency>
+      <groupId>org.springframework.boot</groupId>
+      <artifactId>spring-boot-starter-validation</artifactId>
+      <exclusions>
+        <exclusion>
+          <groupId>org.springframework.boot</groupId>
+          <artifactId>spring-boot-starter-tomcat-</artifactId>
+        </exclusion>
+      </exclusions>
+    </dependency>
+    <dependency>
+      <groupId>org.springframework.boot</groupId>
+      <artifactId>spring-boot-starter-jetty</artifactId>
+    </dependency>
+    <dependency>
+      <groupId>com.github.xiaoymin</groupId>
+      <artifactId>knife4j-openapi3-jakarta-spring-boot-starter</artifactId>
+    </dependency>
+    <dependency>
+      <groupId>cn.fye.cloud</groupId>
+      <artifactId>fye-common</artifactId>
+    </dependency>
+  </dependencies>
+</project>
