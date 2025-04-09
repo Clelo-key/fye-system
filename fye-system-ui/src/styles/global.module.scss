@@ -1,0 +1,4 @@
+@use './namespace.scss' as *;
+:export {
+  namespace: $namespace;
+}

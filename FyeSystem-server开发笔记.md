@@ -232,6 +232,9 @@ CommonResult类可以定义全局响应内容。
 
 内容较为简单，详情关注CommonResult和GlobalExceptionHandler这两个类。
 
+## 搭建RBAC权限模型
+
+
 ## 引入SpringSecurity进行授权验证
 
 ([认证（Authentication） :: Spring Security Reference](https://springdoc.cn/spring-security/features/authentication/index.html))

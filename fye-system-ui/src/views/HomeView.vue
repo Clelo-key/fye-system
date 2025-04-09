@@ -1,8 +1,6 @@
-<script setup lang="ts"></script>
-
+<script setup lang="ts">
+  import Layout from '@/layout/Layout.vue'
+</script>
 <template>
-  <main>
-    <!-- <TheWelcome /> -->
-    HELLO WORLD
-  </main>
+  <Layout />
 </template>
