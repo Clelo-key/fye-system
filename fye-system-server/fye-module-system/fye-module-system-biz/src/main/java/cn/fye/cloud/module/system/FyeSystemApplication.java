@@ -13,8 +13,6 @@ import org.springframework.context.ConfigurableApplicationContext;
 @SpringBootApplication
 public class FyeSystemApplication {
     public static void main(String[] args) {
-        ConfigurableApplicationContext run = SpringApplication.run(FyeSystemApplication.class, args);
-        GlobalExceptionHandler bean = run.getBean(GlobalExceptionHandler.class);
-        System.out.println(bean);
+        SpringApplication.run(FyeSystemApplication.class, args);
     }
 }

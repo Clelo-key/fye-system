@@ -1,6 +1,5 @@
-import './assets/main.css'
-
 // 引入全局样式
+import '@/plugins/unocss'
 import '@/styles/index.scss'
 import 'element-plus/dist/index.css'
 
@@ -8,19 +7,19 @@ import 'element-plus/dist/index.css'
 import { createApp } from 'vue'
 import { createPinia } from 'pinia'
 // 引入 element-plus
-import { setupElementPlus } from '@/plugins/elementPlus'
+// import { setupElementPlus } from '@/plugins/elementPlus'
+import ElementPlus from 'element-plus'
 
 import App from './App.vue'
-import router, { setupRouter } from '@/router'
+import { setupRouter } from '@/router'
 
 const setupAll = async () => {
   const app = createApp(App)
 
   setupRouter(app)
-  setupElementPlus(app)
 
   app.use(createPinia())
-  app.use(router)
+  app.use(ElementPlus)
 
   app.mount('#app')
 }

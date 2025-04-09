@@ -13,6 +13,7 @@ import java.util.Set;
 
 @Data
 public class AdminUserDO {
+
     /**
      * 用户ID
      */
@@ -31,10 +32,6 @@ public class AdminUserDO {
      * 用户昵称
      */
     private String nickname;
-    /**
-     * 部门 ID
-     */
-    private Long deptId;
     /**
      * 用户邮箱
      */
@@ -59,10 +56,6 @@ public class AdminUserDO {
      * 枚举 {@link CommonStatusEnum}
      */
     private Integer status;
-    /**
-     * 最后登录IP
-     */
-    private String loginIp;
     /**
      * 最后登录时间
      */

@@ -1,1 +1,40 @@
-@use './theme.scss';
+:root {
+  --left-menu-max-width: 200px;
+  --left-menu-min-width: 64px;
+
+  --left-menu-scollbar-height: cacal(100% - 65px);
+
+  --left-menu-bg-active-color: var(--el-color-primary);
+
+  --left-menu-collapse-bg-active-color: var(--el-color-primary);
+  --transition-time-02: 0.2s;
+
+  --left-logo-name-color: rgb(191, 196, 92);
+  --left-logo-height: 65px;
+}
+
+.dark {
+  --app-content-bg-color: var(--el-bg-color);
+}
+
+// html {
+//   font-size: 4px; // * 方便unocss计算：1单位 = 0.25rem = 1px
+// }
+
+// body {
+//   font-size: 16px;
+// }
+
+html,
+body {
+  height: 100vh;
+  width: 100vw;
+}
+
+*,
+:after,
+:before {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
