@@ -172,4 +172,5 @@ public class LectesteWebSecurityConfigurerAdapter {
         }
         return result;
     }
+
 }

@@ -1,6 +1,12 @@
 package cn.fye.cloud.module.system.dal.dataobject.user;
 
+import cn.fye.clould.framework.common.enums.CommonStatusEnum;
+import cn.fye.clould.framework.common.enums.SexEnum;
+import com.baomidou.mybatisplus.annotation.IdType;
+import com.baomidou.mybatisplus.annotation.TableId;
+import com.baomidou.mybatisplus.annotation.TableName;
 import lombok.Data;
+import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
 
 import java.time.LocalDateTime;
 import java.util.Set;
@@ -12,11 +18,12 @@ import java.util.Set;
  */
 
 @Data
+@TableName("sys_user")
 public class AdminUserDO {
-
     /**
      * 用户ID
      */
+    @TableId(value = "id", type = IdType.AUTO)
     private Long id;
     /**
      * 用户账号
@@ -37,27 +44,33 @@ public class AdminUserDO {
      */
     private String email;
     /**
-     * 手机号码
+     * 用户号码
      */
     private String mobile;
     /**
      * 用户性别
-     *
      * 枚举类 {@link SexEnum}
      */
     private Integer sex;
+    /**
+     * 部门 ID
+     */
+    private Long deptId;
     /**
      * 用户头像
      */
     private String avatar;
     /**
      * 帐号状态
-     *
      * 枚举 {@link CommonStatusEnum}
      */
-    private Integer status;
+    private Integer deleted;
     /**
-     * 最后登录时间
-     */
-    private LocalDateTime loginDate;
+     * 创建时间
+     * */
+    private LocalDateTime createTime;
+    /**
+     * 更新时间
+     * */
+    private LocalDateTime updateTime;
 }

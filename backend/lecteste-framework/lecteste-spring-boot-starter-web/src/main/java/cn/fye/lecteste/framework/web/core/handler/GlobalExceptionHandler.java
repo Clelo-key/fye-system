@@ -28,8 +28,6 @@ public class GlobalExceptionHandler {
      * */
     @ExceptionHandler(value = NullPointerException.class)
     public CommonResult<?> nullPointExceptionHandler(HttpServletRequest req, Throwable ex) {
-        System.out.println("捕获到了NullPointerException");
-        System.out.println(ex.getMessage());
         return CommonResult.error(INTERNAL_SERVER_ERROR.getCode(), String.format("NullPointer:%s", req.getServletPath()));
     }
 

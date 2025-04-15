@@ -11,9 +11,12 @@
   <url>http://www.fyed.top</url>
   <properties>
     <mybatis-plus-join.version>1.4.13</mybatis-plus-join.version>
+    <springweb.version>6.1.12</springweb.version>
     <spring.boot.version>3.2.0</spring.boot.version>
-    <mybatis-plus.version>3.5.9</mybatis-plus.version>
+    <hutool.version>5.8.35</hutool.version>
+    <mybatis-plus.version>3.5.11</mybatis-plus.version>
     <knife4j.version>4.3.0</knife4j.version>
+    <guava.version>33.4.0-jre</guava.version>
     <flatten-maven-plugin.version>1.6.0</flatten-maven-plugin.version>
     <revision>0.0.1-jdk17-snapshot</revision>
     <spring.cloud.version>2021.0.9</spring.cloud.version>
@@ -21,8 +24,10 @@
     <spring.cloud.alibaba.version>2021.0.6.2</spring.cloud.alibaba.version>
     <servlet.versoin>2.5</servlet.versoin>
     <springdoc.version>2.3.0</springdoc.version>
+    <mapstruct.version>1.6.3</mapstruct.version>
     <druid.version>1.2.24</druid.version>
     <redisson.version>3.41.0</redisson.version>
+    <dynamic-datasource.version>4.3.1</dynamic-datasource.version>
     <mybatis.version>3.5.17</mybatis.version>
   </properties>
   <dependencyManagement>
@@ -41,8 +46,48 @@
       </dependency>
       <dependency>
         <groupId>cn.fye.cloud</groupId>
+        <artifactId>fye-spring-boot-starter-mybatis</artifactId>
+        <version>0.0.1-jdk17-snapshot</version>
+      </dependency>
+      <dependency>
+        <groupId>org.mybatis</groupId>
+        <artifactId>mybatis</artifactId>
+        <version>${mybatis.version}</version>
+      </dependency>
+      <dependency>
+        <groupId>com.baomidou</groupId>
+        <artifactId>dynamic-datasource-spring-boot-starter</artifactId>
+        <version>${dynamic-datasource.version}</version>
+      </dependency>
+      <dependency>
+        <groupId>com.baomidou</groupId>
+        <artifactId>mybatis-plus-jsqlparser-4.9</artifactId>
+        <version>${mybatis-plus.version}</version>
+      </dependency>
+      <dependency>
+        <groupId>com.baomidou</groupId>
+        <artifactId>mybatis-plus-spring-boot3-starter</artifactId>
+        <version>${mybatis-plus.version}</version>
+      </dependency>
+      <dependency>
+        <groupId>com.alibaba</groupId>
+        <artifactId>druid-spring-boot-starter</artifactId>
+        <version>${druid.version}</version>
+      </dependency>
+      <dependency>
+        <groupId>cn.fye.cloud</groupId>
+        <artifactId>fye-spring-boot-starter-security</artifactId>
+        <version>0.0.1-jdk17-snapshot</version>
+      </dependency>
+      <dependency>
+        <groupId>cn.fye.cloud</groupId>
         <artifactId>fye-spring-boot-starter-web</artifactId>
         <version>0.0.1-jdk17-snapshot</version>
+      </dependency>
+      <dependency>
+        <groupId>org.springframework</groupId>
+        <artifactId>spring-web</artifactId>
+        <version>${springweb.version}</version>
       </dependency>
       <dependency>
         <groupId>com.github.xiaoymin</groupId>
@@ -53,6 +98,31 @@
         <groupId>cn.fye.cloud</groupId>
         <artifactId>fye-common</artifactId>
         <version>0.0.1-jdk17-snapshot</version>
+      </dependency>
+      <dependency>
+        <groupId>cn.hutool</groupId>
+        <artifactId>hutool-all</artifactId>
+        <version>${hutool.version}</version>
+      </dependency>
+      <dependency>
+        <groupId>com.google.guava</groupId>
+        <artifactId>guava</artifactId>
+        <version>${guava.version}</version>
+      </dependency>
+      <dependency>
+        <groupId>org.mapstruct</groupId>
+        <artifactId>mapstruct</artifactId>
+        <version>${mapstruct.version}</version>
+      </dependency>
+      <dependency>
+        <groupId>org.mapstruct</groupId>
+        <artifactId>mapstruct-jdk8</artifactId>
+        <version>${mapstruct.version}</version>
+      </dependency>
+      <dependency>
+        <groupId>org.mapstruct</groupId>
+        <artifactId>mapstruct-processor</artifactId>
+        <version>${mapstruct.version}</version>
       </dependency>
     </dependencies>
   </dependencyManagement>
