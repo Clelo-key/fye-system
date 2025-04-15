@@ -39,7 +39,6 @@ public class PermissionServiceImpl implements PermissionService {
         if (userId==1L&& StrUtil.containsAny("ADMIN",roles)){
             return true;
         }
-        System.out.println("PermissionServiceImpl"+userId);
         return false;
     }
 }

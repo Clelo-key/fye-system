@@ -17,6 +17,5 @@ public class AccessDeniedHandlerImpl implements AccessDeniedHandler {
             throws IOException, ServletException {
         // 返回 403
         Authentication authentication = SecurityContextHolder.getContext().getAuthentication();
-        System.out.println(authentication.getName());
     }
 }

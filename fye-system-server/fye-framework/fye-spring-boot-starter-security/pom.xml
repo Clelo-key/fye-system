@@ -12,6 +12,33 @@
         <artifactId>fye-framework</artifactId>
         <version>${revision}</version>
     </parent>
+    <dependencies>
+        <dependency>
+            <groupId>cn.fye.cloud</groupId>
+            <artifactId>fye-common</artifactId>
+        </dependency>
+        <!-- Web 相关 -->
+        <dependency>
+            <groupId>cn.fye.cloud</groupId>
+            <artifactId>fye-spring-boot-starter-web</artifactId>
+        </dependency>
+        <!-- spring boot 配置提示 -->
+        <dependency>
+            <groupId>org.springframework.boot</groupId>
+            <artifactId>spring-boot-configuration-processor</artifactId>
+            <optional>true</optional>
+        </dependency>
+        <dependency>
+            <groupId>org.springframework.boot</groupId>
+            <artifactId>spring-boot-starter-security</artifactId>
+        </dependency>
+        <!-- 工具类相关 -->
+        <dependency>
+            <groupId>com.google.guava</groupId>
+            <artifactId>guava</artifactId>
+        </dependency>
+
+    </dependencies>
 
 
 </project>

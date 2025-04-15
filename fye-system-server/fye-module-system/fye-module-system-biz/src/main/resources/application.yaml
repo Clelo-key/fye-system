@@ -21,13 +21,6 @@ springdoc:
   api-docs:
     path: /v3/api-docs  #swagger后端请求地址
     enabled: true   #是否开启文档功能
-  group-configs: #分组配置,可配置多个分组
-    - group: 'default'             #分组名称
-      paths-to-match: '/**'        #配置需要匹配的路径
-      packages-to-scan: cn.fye.cloud.module.*.controller.app  #配置要扫描包的路径,一般配置到启动类所在的包名
-    - group: 'admin-api'
-      paths-to-match: '/**'
-      packages-to-scan: cn.fye.cloud.module.*.controller.admin
 
 # knife4j的增强配置，不需要增强可以不配
 knife4j:

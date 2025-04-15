@@ -14,5 +14,13 @@
       <groupId>cn.fye.cloud</groupId>
       <artifactId>fye-spring-boot-starter-web</artifactId>
     </dependency>
+    <dependency>
+      <groupId>cn.fye.cloud</groupId>
+      <artifactId>fye-spring-boot-starter-mybatis</artifactId>
+    </dependency>
+    <dependency>
+      <groupId>cn.fye.cloud</groupId>
+      <artifactId>fye-spring-boot-starter-security</artifactId>
+    </dependency>
   </dependencies>
 </project>

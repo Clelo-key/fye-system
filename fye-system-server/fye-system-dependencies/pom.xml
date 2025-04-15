@@ -22,15 +22,20 @@
         <servlet.versoin>2.5</servlet.versoin>
         <springdoc.version>2.3.0</springdoc.version>
         <knife4j.version>4.3.0</knife4j.version>
+        <springweb.version>6.1.12</springweb.version>
         <!-- DB相关 -->
         <druid.version>1.2.24</druid.version>
         <mybatis.version>3.5.17</mybatis.version>
-        <mybatis-plus.version>3.5.9</mybatis-plus.version>
+        <mybatis-plus.version>3.5.11</mybatis-plus.version>
         <mybatis-plus-join.version>1.4.13</mybatis-plus-join.version>
         <redisson.version>3.41.0</redisson.version>
+        <dynamic-datasource.version>4.3.1</dynamic-datasource.version>
+
         <!-- 工具类相关 -->
         <lombok.version>1.18.36</lombok.version>
         <hutool.version>5.8.35</hutool.version>
+        <guava.version>33.4.0-jre</guava.version>
+        <mapstruct.version>1.6.3</mapstruct.version>
     </properties>
     <dependencyManagement>
         <dependencies>
@@ -50,6 +55,47 @@
                 <version>${spring.boot.version}</version>
             </dependency>
             <!-- DB相关 -->
+            <dependency>
+                <groupId>cn.fye.cloud</groupId>
+                <artifactId>fye-spring-boot-starter-mybatis</artifactId>
+                <version>${revision}</version>
+            </dependency>
+            <dependency>
+                <groupId>org.mybatis</groupId>
+                <artifactId>mybatis</artifactId>
+                <version>${mybatis.version}</version>
+            </dependency>
+            <dependency>
+                <groupId>com.baomidou</groupId>
+                <artifactId>dynamic-datasource-spring-boot-starter</artifactId> <!-- 多数据源 -->
+                <version>${dynamic-datasource.version}</version>
+            </dependency>
+            <dependency>
+                <groupId>com.baomidou</groupId>
+                <artifactId>mybatis-plus-jsqlparser-4.9</artifactId>
+                <version>${mybatis-plus.version}</version>
+            </dependency>
+            <dependency>
+                <groupId>com.baomidou</groupId>
+                <artifactId>mybatis-plus-spring-boot3-starter</artifactId>
+                <version>${mybatis-plus.version}</version>
+            </dependency>
+<!--            <dependency>-->
+<!--                <groupId>com.github.yulichang</groupId>-->
+<!--                <artifactId>mybatis-plus-join-boot-starter</artifactId> &lt;!&ndash; MyBatis 联表查询 &ndash;&gt;-->
+<!--                <version>${mybatis-plus-join.version}</version>-->
+<!--            </dependency>-->
+            <dependency>
+                <groupId>com.alibaba</groupId>
+                <artifactId>druid-spring-boot-starter</artifactId>
+                <version>${druid.version}</version>
+            </dependency>
+            <!-- 安全相关 -->
+            <dependency>
+                <groupId>cn.fye.cloud</groupId>
+                <artifactId>fye-spring-boot-starter-security</artifactId>
+                <version>${revision}</version>
+            </dependency>
 
             <!-- Web 相关 -->
             <dependency>
@@ -58,6 +104,14 @@
                 <version>${revision}</version>
             </dependency>
 
+            <dependency>
+                <groupId>org.springframework</groupId>
+                <artifactId>spring-web</artifactId>
+                <version>${springweb.version}</version>
+            </dependency>
+
+
+
             <!-- https://mvnrepository.com/artifact/com.github.xiaoymin/knife4j-openapi3-jakarta-spring-boot-starter -->
             <!-- Swagger3-knife4j依赖 -->
             <dependency>
@@ -65,6 +119,7 @@
                 <artifactId>knife4j-openapi3-jakarta-spring-boot-starter</artifactId>
                 <version>${knife4j.version}</version>
             </dependency>
+
 
             <!-- 工具类 -->
             <dependency>
@@ -76,6 +131,27 @@
                 <groupId>cn.hutool</groupId>
                 <artifactId>hutool-all</artifactId>
                 <version>${hutool.version}</version>
+            </dependency>
+            <dependency>
+                <groupId>com.google.guava</groupId>
+                <artifactId>guava</artifactId>
+                <version>${guava.version}</version>
+            </dependency>
+
+            <dependency>
+                <groupId>org.mapstruct</groupId>
+                <artifactId>mapstruct</artifactId> <!-- use mapstruct-jdk8 for Java 8 or higher -->
+                <version>${mapstruct.version}</version>
+            </dependency>
+            <dependency>
+                <groupId>org.mapstruct</groupId>
+                <artifactId>mapstruct-jdk8</artifactId>
+                <version>${mapstruct.version}</version>
+            </dependency>
+            <dependency>
+                <groupId>org.mapstruct</groupId>
+                <artifactId>mapstruct-processor</artifactId>
+                <version>${mapstruct.version}</version>
             </dependency>
 
         </dependencies>

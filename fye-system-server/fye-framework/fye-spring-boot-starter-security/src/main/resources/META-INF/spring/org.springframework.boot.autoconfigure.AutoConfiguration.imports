@@ -1,0 +1,2 @@
+cn.fye.cloud.framework.config.FyeSecurityAutoConfiguration
+cn.fye.cloud.framework.config.FyeWebSecurityConfigurerAdapter

@@ -9,4 +9,27 @@
   </parent>
   <artifactId>fye-spring-boot-starter-security</artifactId>
   <version>0.0.1-jdk17-snapshot</version>
+  <dependencies>
+    <dependency>
+      <groupId>cn.fye.cloud</groupId>
+      <artifactId>fye-common</artifactId>
+    </dependency>
+    <dependency>
+      <groupId>cn.fye.cloud</groupId>
+      <artifactId>fye-spring-boot-starter-web</artifactId>
+    </dependency>
+    <dependency>
+      <groupId>org.springframework.boot</groupId>
+      <artifactId>spring-boot-configuration-processor</artifactId>
+      <optional>true</optional>
+    </dependency>
+    <dependency>
+      <groupId>org.springframework.boot</groupId>
+      <artifactId>spring-boot-starter-security</artifactId>
+    </dependency>
+    <dependency>
+      <groupId>com.google.guava</groupId>
+      <artifactId>guava</artifactId>
+    </dependency>
+  </dependencies>
 </project>

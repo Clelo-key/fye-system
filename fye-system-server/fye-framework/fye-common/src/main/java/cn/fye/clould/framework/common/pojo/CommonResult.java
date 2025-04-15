@@ -7,6 +7,7 @@ import cn.fye.clould.framework.common.exception.enums.GlobalErrorCodeConstants;
 import lombok.Data;
 
 import java.io.Serializable;
+import java.util.Objects;
 
 /**
  * @Author: Fly
@@ -31,26 +32,41 @@ public class CommonResult<T> implements Serializable {
      * @see ErrorCode#getMsg() ()
      */
     private String msg;
+
     /**
      * success
-     * */
+     */
     public static <T> CommonResult<T> success(T data) {
         CommonResult<T> result = new CommonResult<T>();
-        result.code=GlobalErrorCodeConstants.SUCCESS.getCode();
-        result.data=data;
-        result.msg="";
+        result.code = GlobalErrorCodeConstants.SUCCESS.getCode();
+        result.data = data;
+        result.msg = "Success";
         return result;
     }
+
     /**
      * error
-     * */
+     */
     public static <T> CommonResult<T> error(int code, String msg) {
-        if (GlobalErrorCodeConstants.SUCCESS.getCode()==code){
+        if (GlobalErrorCodeConstants.SUCCESS.getCode() == code) {
             throw new IllegalArgumentException(msg);
         }
         CommonResult<T> result = new CommonResult<T>();
-        result.code=code;
-        result.msg=msg;
+        result.code = code;
+        result.msg = msg;
+        return result;
+    }
+
+    /**
+     * error
+     */
+    public static <T> CommonResult<T> error(ErrorCode errorCode) {
+        if (Objects.equals(GlobalErrorCodeConstants.SUCCESS.getCode(), errorCode.getCode())) {
+            throw new IllegalArgumentException(errorCode.getMsg());
+        }
+        CommonResult<T> result = new CommonResult<T>();
+        result.code = errorCode.getCode();
+        result.msg = errorCode.getMsg();
         return result;
     }
 

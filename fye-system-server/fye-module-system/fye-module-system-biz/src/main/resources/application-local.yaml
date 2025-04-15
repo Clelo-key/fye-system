@@ -18,13 +18,26 @@ spring:
 
 --- #################### 数据库相关配置 ####################
 spring:
+  datasource:
+    url: jdbc:mysql://localhost:3306/fye-system?useSSL=false&serverTimezone=Asia/Shanghai&allowPublicKeyRetrieval=true&nullCatalogMeansCurrent=true&rewriteBatchedStatements=true
+    username: root
+    password: 123456
+    driver-class-name: com.mysql.cj.jdbc.Driver
+    type: com.alibaba.druid.pool.DruidDataSource # 设置类型为 DruidDataSource
+    # Druid 自定义配置，对应 DruidDataSource 中的 setting 方法的属性
+    druid:
+      min-idle: 0 # 池中维护的最小空闲连接数，默认为 0 个。
+      max-active: 20 # 池中最大连接数，包括闲置和使用中的连接，默认为 8 个。
   # Redis 配置。Redisson 默认的配置足够使用，一般不需要进行调优
   data:
     redis:
-      host: 127.0.0.1
       database: 0
       port: 6379
-#    password: 123456 # 密码，建议生产环境开启
+      host: 127.0.0.1
+# mybatis-plus
+mybatis-plus:
+  configuration:
+    log-impl: org.apache.ibatis.logging.stdout.StdOutImpl
 
 --- #################### MQ 消息队列相关配置 ####################
 

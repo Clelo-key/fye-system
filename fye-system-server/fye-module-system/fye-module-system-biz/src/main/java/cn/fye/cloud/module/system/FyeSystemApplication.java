@@ -1,9 +1,7 @@
 package cn.fye.cloud.module.system;
 
-import cn.fye.cloud.framework.web.handler.GlobalExceptionHandler;
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
-import org.springframework.context.ConfigurableApplicationContext;
 
 /**
  * @Author: Fly

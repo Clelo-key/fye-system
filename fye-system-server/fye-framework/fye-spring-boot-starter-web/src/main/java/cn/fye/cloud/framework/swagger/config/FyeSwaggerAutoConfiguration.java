@@ -29,12 +29,21 @@ public class FyeSwaggerAutoConfiguration {
      * 除了配置文件方式创建分组，也可以通过注册bean创建分组
      */
     @Bean
-    public GroupedOpenApi adminApi() {
+    public GroupedOpenApi appApi() {
         return GroupedOpenApi.builder()
                 // 分组名称
                 .group("app-api")
                 // 接口请求路径规则
-                .pathsToMatch("/**")
+                .pathsToMatch("/app-api/**")
+                .build();
+    }
+    @Bean
+    public GroupedOpenApi adminApi() {
+        return GroupedOpenApi.builder()
+                // 分组名称
+                .group("admin-api")
+                // 接口请求路径规则
+                .pathsToMatch("/admin-api/**")
                 .build();
     }
 
